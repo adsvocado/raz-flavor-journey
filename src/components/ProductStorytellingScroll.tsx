@@ -1,35 +1,28 @@
 import { Scale, Users, CheckCircle } from 'lucide-react';
-
-const productFeatures = [
-  {
-    id: 1,
-    value: "1.5G",
-    label: "Premium Weight",
-    description: "Perfect pre-roll size for an optimal experience",
-    icon: Scale,
-    color: "from-blue-400 to-cyan-600",
-  },
-  {
-    id: 2,
-    value: "3",
-    label: "Unique Strains",
-    description: "Hybrid, Indica, and Sativa profiles available",
-    icon: Users,
-    color: "from-purple-400 to-pink-600",
-  },
-  {
-    id: 3,
-    value: "100%",
-    label: "Federally Compliant",
-    description: "Legal and certified for your peace of mind",
-    icon: CheckCircle,
-    color: "from-green-400 to-emerald-600",
-  }
-];
-
+const productFeatures = [{
+  id: 1,
+  value: "1.5G",
+  label: "Premium Weight",
+  description: "Perfect pre-roll size for an optimal experience",
+  icon: Scale,
+  color: "from-blue-400 to-cyan-600"
+}, {
+  id: 2,
+  value: "3",
+  label: "Unique Strains",
+  description: "Hybrid, Indica, and Sativa profiles available",
+  icon: Users,
+  color: "from-purple-400 to-pink-600"
+}, {
+  id: 3,
+  value: "100%",
+  label: "Federally Compliant",
+  description: "Legal and certified for your peace of mind",
+  icon: CheckCircle,
+  color: "from-green-400 to-emerald-600"
+}];
 const ProductStorytellingScroll = () => {
-  return (
-    <section className="py-20 overflow-hidden bg-background relative">
+  return <section className="py-20 overflow-hidden bg-background relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-lg text-muted-foreground mb-4">
@@ -39,13 +32,9 @@ const ProductStorytellingScroll = () => {
 
         {/* Interactive Product Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {productFeatures.map((feature) => {
-            const IconComponent = feature.icon;
-            return (
-              <div
-                key={feature.id}
-                className="group relative cursor-pointer"
-              >
+          {productFeatures.map(feature => {
+          const IconComponent = feature.icon;
+          return <div key={feature.id} className="group relative cursor-pointer">
                 {/* Main Feature Card */}
                 <div className="glass rounded-3xl p-8 text-center relative overflow-hidden transition-all duration-700 hover:scale-105 hover:shadow-neon">
                   {/* Background Gradient */}
@@ -78,34 +67,23 @@ const ProductStorytellingScroll = () => {
                   
                   {/* Floating Particles */}
                   <div className="absolute inset-0 pointer-events-none">
-                    {[...Array(2)].map((_, i) => (
-                      <div
-                        key={i}
-                        className={`absolute w-2 h-2 bg-gradient-to-r ${feature.color} rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000`}
-                        style={{
-                          left: `${30 + i * 40}%`,
-                          top: `${20 + i * 30}%`,
-                          animationDelay: `${i * 0.3}s`,
-                          animation: 'float 3s ease-in-out infinite'
-                        }}
-                      />
-                    ))}
+                    {[...Array(2)].map((_, i) => <div key={i} className={`absolute w-2 h-2 bg-gradient-to-r ${feature.color} rounded-full opacity-0 group-hover:opacity-60 transition-all duration-1000`} style={{
+                  left: `${30 + i * 40}%`,
+                  top: `${20 + i * 30}%`,
+                  animationDelay: `${i * 0.3}s`,
+                  animation: 'float 3s ease-in-out infinite'
+                }} />)}
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              </div>;
+        })}
         </div>
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl hover:shadow-neon transition-all duration-300 hover:scale-105">
-            Shop RAZ Pre-Rolls
-          </button>
+          <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl hover:shadow-neon transition-all duration-300 hover:scale-105">View All Products</button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ProductStorytellingScroll;
