@@ -75,7 +75,7 @@ const Navigation = () => {
                     className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
                       isActive
                         ? 'bg-gradient-to-r from-raz-red to-raz-blue text-white shadow-neon'
-                        : scrolled ? 'text-white hover:text-primary hover:shadow-glass' : 'text-black hover:text-primary hover:shadow-glass'
+                        : 'text-black hover:text-primary hover:shadow-glass'
                     }`}
                   >
                     {item.name}
@@ -90,9 +90,9 @@ const Navigation = () => {
               className="md:hidden p-2 rounded-lg glass hover:shadow-neon transition-all duration-300"
             >
               {isOpen ? (
-                <X className={`w-6 h-6 ${scrolled ? 'text-white' : 'text-black'}`} />
+                <X className="w-6 h-6 text-black" />
               ) : (
-                <Menu className={`w-6 h-6 ${scrolled ? 'text-white' : 'text-black'}`} />
+                <Menu className="w-6 h-6 text-black" />
               )}
             </button>
           </div>
