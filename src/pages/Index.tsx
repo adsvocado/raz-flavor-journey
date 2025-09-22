@@ -4,6 +4,7 @@ import InfiniteScroll from '@/components/InfiniteScroll';
 import ProductStorytellingScroll from '@/components/ProductStorytellingScroll';
 import ComplianceSection from '@/components/ComplianceSection';
 import PreRollCarousel from '@/components/PreRollCarousel';
+import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <ProductStorytellingScroll />
       <PreRollCarousel />
       <ComplianceSection />
+      <Footer />
     </main>
   );
 };
