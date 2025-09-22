@@ -114,16 +114,13 @@ const PreRollCarousel = () => {
             
             {/* Left Side - Large Clean Pre-Roll */}
             <div className="flex justify-center">
-              <div className={`relative group cursor-pointer transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
-                <div className="relative w-48 h-80 flex items-center justify-center">
+              <div className={`relative transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
+                <div className="relative w-80 h-48 flex items-center justify-center">
                   <img 
                     src={razPrerollClean} 
                     alt="RAZ Pre-Roll" 
-                    className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110" 
+                    className="w-full h-full object-contain drop-shadow-2xl transform rotate-90" 
                   />
-                  
-                  {/* Glow Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${currentPreRoll.gradient} opacity-20 rounded-full blur-xl scale-75 group-hover:scale-90 transition-all duration-500`} />
                 </div>
               </div>
             </div>
