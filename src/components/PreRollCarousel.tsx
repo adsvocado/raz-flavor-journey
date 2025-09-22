@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Leaf, Zap, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import prerollBase from '@/assets/preroll-base.png';
-import prerollTypography from '@/assets/preroll-typography.png';
+import razPrerollClean from '@/assets/raz-preroll-clean.png';
 import alienCookies from '@/assets/alien-cookies.jpg';
 import strawberryKush from '@/assets/strawberry-kush.jpg';
 import alazkanThunderfuck from '@/assets/alazkan-thunderfuck.jpg';
@@ -113,25 +112,18 @@ const PreRollCarousel = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
             
-            {/* Left Side - Pre-Roll Image with 3D Effect (Larger) */}
+            {/* Left Side - Large Clean Pre-Roll */}
             <div className="flex justify-center">
               <div className={`relative group cursor-pointer transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
-                <div className={`relative w-64 h-40 transition-all duration-500 ease-out transform group-hover:scale-110 group-hover:-rotate-12 ${currentPreRoll.glowColor} group-hover:shadow-xl`} style={{
-                transformStyle: 'preserve-3d',
-                perspective: '800px'
-              }}>
-                  {/* Pre-Roll Base Image - Horizontal */}
-                  <div className="absolute inset-0 transition-transform duration-500 group-hover:rotateY-12">
-                    <img src={prerollBase} alt={`${currentPreRoll.name} Pre-Roll`} className="w-full h-full object-contain drop-shadow-lg transform rotate-90" />
-                  </div>
+                <div className="relative w-48 h-80 flex items-center justify-center">
+                  <img 
+                    src={razPrerollClean} 
+                    alt="RAZ Pre-Roll" 
+                    className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-110" 
+                  />
                   
-                  {/* Floating Brand Typography */}
-                  <div className="absolute -top-2 -right-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
-                    <img src={prerollTypography} alt="RAZ Typography" className="w-20 h-20 object-contain opacity-70" />
-                  </div>
-
                   {/* Glow Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${currentPreRoll.gradient} opacity-10 rounded-full blur-lg scale-75 group-hover:scale-90 transition-all duration-500`} />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${currentPreRoll.gradient} opacity-20 rounded-full blur-xl scale-75 group-hover:scale-90 transition-all duration-500`} />
                 </div>
               </div>
             </div>
