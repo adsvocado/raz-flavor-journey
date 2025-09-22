@@ -197,7 +197,7 @@ const PreRollCarousel = () => {
                 size="sm"
                 className={`px-6 py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg`}
               >
-                Shop Now
+                View more
               </Button>
             </div>
           </div>

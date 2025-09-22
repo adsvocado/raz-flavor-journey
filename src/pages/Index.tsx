@@ -11,10 +11,10 @@ const Index = () => {
     <main className="min-h-screen">
       <HeroSection />
       <InfiniteScroll />
-      <PreRollCarousel />
       <StrainShowcase />
       <ProductStorytellingScroll />
       <ParallaxSection />
+      <PreRollCarousel />
       <ComplianceSection />
     </main>
   );
