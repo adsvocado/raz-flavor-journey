@@ -67,18 +67,21 @@ const NewsletterSection = () => {
             </div>
           </div>
 
-          {/* Right Half - Video Space */}
+          {/* Right Half - Video */}
           <div className="relative">
-            <div className="aspect-video bg-muted rounded-3xl flex items-center justify-center border-2 border-dashed border-border">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-muted-foreground/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-muted-foreground" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-                <p className="text-muted-foreground font-medium">Video Placeholder</p>
-                <p className="text-sm text-muted-foreground/70 mt-1">Video content will be added here</p>
-              </div>
+            <div className="aspect-video rounded-3xl overflow-hidden shadow-lg">
+              <video
+                className="w-full h-full object-cover"
+                controls
+                preload="metadata"
+                poster=""
+              >
+                <source 
+                  src="https://unicoscomotu.com/SEA/wp-content/uploads/2025/09/Video-de-WhatsApp-2025-09-22-a-las-09.22.02_a228bc02.mp4" 
+                  type="video/mp4" 
+                />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
