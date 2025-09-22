@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Home, Info, Package, Phone } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import razLogo from '@/assets/raz-logo.png';
 
 const navigationItems = [
   {
@@ -54,8 +55,12 @@ const Navigation = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" className="font-druk text-2xl md:text-3xl text-foreground neon-text hover:scale-105 transition-transform duration-300">
-              RAZ
+            <Link to="/" className="hover:scale-105 transition-transform duration-300">
+              <img 
+                src={razLogo} 
+                alt="RAZ" 
+                className="h-8 md:h-10 w-auto"
+              />
             </Link>
 
             {/* Desktop Menu */}
@@ -71,7 +76,7 @@ const Navigation = () => {
                     className={`flex items-center gap-2 px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
                       isActive
                         ? 'bg-gradient-to-r from-raz-red to-raz-blue text-white shadow-neon'
-                        : 'text-foreground hover:text-primary hover:shadow-glass'
+                        : scrolled ? 'text-white hover:text-primary hover:shadow-glass' : 'text-black hover:text-primary hover:shadow-glass'
                     }`}
                   >
                     <IconComponent className="w-4 h-4" />
@@ -87,9 +92,9 @@ const Navigation = () => {
               className="md:hidden p-2 rounded-lg glass hover:shadow-neon transition-all duration-300"
             >
               {isOpen ? (
-                <X className="w-6 h-6 text-foreground" />
+                <X className={`w-6 h-6 ${scrolled ? 'text-white' : 'text-black'}`} />
               ) : (
-                <Menu className="w-6 h-6 text-foreground" />
+                <Menu className={`w-6 h-6 ${scrolled ? 'text-white' : 'text-black'}`} />
               )}
             </button>
           </div>
