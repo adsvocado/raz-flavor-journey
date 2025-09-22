@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Leaf, Zap, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import razPrerollClean from '@/assets/raz-preroll-clean.png';
+import alaskanTitle from '@/assets/alaskan-title.png';
 import alienCookies from '@/assets/alien-cookies.jpg';
 import strawberryKush from '@/assets/strawberry-kush.jpg';
 import alazkanThunderfuck from '@/assets/alazkan-thunderfuck.jpg';
@@ -125,30 +126,21 @@ const PreRollCarousel = () => {
               </div>
             </div>
 
-            {/* Center - Strain Image with Name */}
-            <div className={`flex justify-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
-              <div className="relative group cursor-pointer">
-                {/* Strain Image */}
-                <div className="relative w-48 h-32 rounded-xl overflow-hidden">
-                  <img src={currentPreRoll.image} alt={currentPreRoll.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  
-                  {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent`} />
-                  
-                  {/* Type Badge */}
-                  <div className="absolute top-2 right-2">
-                    <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-xs`}>
-                      {getTypeIcon(currentPreRoll.type)}
-                      <span>{currentPreRoll.type}</span>
-                    </div>
-                  </div>
-                  
-                  {/* Product Name Overlay */}
-                  <div className="absolute bottom-2 left-2 right-2">
-                    
-                    
-                  </div>
-                </div>
+            {/* Center - Title Image with Type */}
+            <div className={`flex flex-col items-center justify-center space-y-4 transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
+              {/* Type Badge Above */}
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-sm`}>
+                {getTypeIcon(currentPreRoll.type)}
+                <span>{currentPreRoll.type}</span>
+              </div>
+              
+              {/* Product Title Image */}
+              <div className="relative">
+                <img 
+                  src={alaskanTitle} 
+                  alt={currentPreRoll.name} 
+                  className="h-16 object-contain" 
+                />
               </div>
             </div>
 
