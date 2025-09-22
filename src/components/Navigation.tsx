@@ -1,28 +1,28 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, Info, Package, Phone } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import razLogo from '@/assets/raz-logo.png';
 
 const navigationItems = [
   {
     name: 'Home',
-    href: '/',
-    icon: Home
+    href: '/'
   },
   {
-    name: 'About Us',
-    href: '/about',
-    icon: Info
-  },
-  {
-    name: 'Products',
-    href: '/products',
-    icon: Package
+    name: 'Lab Test',
+    href: '/lab-test'
   },
   {
     name: 'Contact',
-    href: '/contact',
-    icon: Phone
+    href: '/contact'
+  },
+  {
+    name: 'FAQs',
+    href: '/faqs'
+  },
+  {
+    name: 'Learn',
+    href: '/learn'
   }
 ];
 
@@ -66,21 +66,19 @@ const Navigation = () => {
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {navigationItems.map((item) => {
-                const IconComponent = item.icon;
                 const isActive = location.pathname === item.href;
                 
                 return (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
+                    className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
                       isActive
                         ? 'bg-gradient-to-r from-raz-red to-raz-blue text-white shadow-neon'
                         : scrolled ? 'text-white hover:text-primary hover:shadow-glass' : 'text-black hover:text-primary hover:shadow-glass'
                     }`}
                   >
-                    <IconComponent className="w-4 h-4" />
-                    <span>{item.name}</span>
+                    {item.name}
                   </Link>
                 );
               })}
@@ -112,14 +110,13 @@ const Navigation = () => {
         }`}>
           <div className="space-y-4">
             {navigationItems.map((item, index) => {
-              const IconComponent = item.icon;
               const isActive = location.pathname === item.href;
               
               return (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 hover:scale-105 ${
+                  className={`flex items-center p-4 rounded-xl transition-all duration-300 hover:scale-105 ${
                     isActive
                       ? 'bg-gradient-to-r from-raz-red to-raz-blue text-white shadow-neon'
                       : 'text-foreground hover:bg-white/5 hover:shadow-glass'
@@ -129,7 +126,6 @@ const Navigation = () => {
                     animation: isOpen ? 'slide-in-left 0.5s ease-out forwards' : 'none'
                   }}
                 >
-                  <IconComponent className="w-5 h-5" />
                   <span className="font-poppins-bold text-lg">{item.name}</span>
                 </Link>
               );
