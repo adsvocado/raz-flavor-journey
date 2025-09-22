@@ -6,6 +6,7 @@ const ScrollytellingSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isActive, setIsActive] = useState(false);
 
   const steps = [
     {
@@ -54,7 +55,30 @@ const ScrollytellingSection = () => {
     const container = containerRef.current;
     if (!container) return;
 
+    // Intersection Observer to detect when section is properly centered
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isInView = entry.intersectionRatio > 0.8; // Section is 80% visible
+        setIsActive(isInView);
+        
+        // Reset scroll progress when entering the section
+        if (isInView && scrollProgress === 0) {
+          setCurrentStep(0);
+          setScrollProgress(0);
+        }
+      },
+      {
+        threshold: 0.8, // Trigger when 80% of section is visible
+        rootMargin: '0px'
+      }
+    );
+
+    observer.observe(container);
+
     const handleScroll = (e: WheelEvent) => {
+      // Only activate scroll when section is properly in view
+      if (!isActive) return;
+      
       e.preventDefault();
       
       const scrollSpeed = 2;
@@ -66,9 +90,19 @@ const ScrollytellingSection = () => {
       
       // Scroll to next section when reaching the end
       if (newScrollProgress >= maxScroll && e.deltaY > 0) {
+        setIsActive(false); // Deactivate current section
         const nextSection = container.nextElementSibling as HTMLElement;
         if (nextSection) {
           nextSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      
+      // Allow scrolling to previous section at the beginning
+      if (newScrollProgress === 0 && e.deltaY < 0) {
+        const prevSection = container.previousElementSibling as HTMLElement;
+        if (prevSection) {
+          setIsActive(false); // Deactivate current section
+          prevSection.scrollIntoView({ behavior: 'smooth' });
         }
       }
     };
@@ -77,8 +111,9 @@ const ScrollytellingSection = () => {
     
     return () => {
       container.removeEventListener('wheel', handleScroll);
+      observer.disconnect();
     };
-  }, [scrollProgress, steps.length]);
+  }, [scrollProgress, steps.length, isActive]);
 
   const currentStepData = steps[currentStep];
   const stepProgress = scrollProgress % 100;
