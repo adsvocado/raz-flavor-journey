@@ -9,6 +9,14 @@ const ParallaxSection = () => {
   }, []);
   return <section className="relative h-screen overflow-hidden flex items-center justify-center">
       {/* Parallax background image */}
+
+          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div className="parallax-slow">
+          <h2 className="font-druk text-6xl md:text-8xl text-foreground neon-text mb-6">
+            PREMIUM
+            <br />
+            EXPERIENCE
+          </h2>
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
       backgroundImage: `url(${razProducts})`,
       transform: `translateY(${scrollY * 0.5}px)`,
@@ -27,15 +35,6 @@ const ParallaxSection = () => {
         animationDuration: `${4 + Math.random() * 4}s`
       }} />)}
       </div>
-
-      {/* Main content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        <div className="parallax-slow">
-          <h2 className="font-druk text-6xl md:text-8xl text-foreground neon-text mb-6">
-            PREMIUM
-            <br />
-            EXPERIENCE
-          </h2>
           
           
         </div>
