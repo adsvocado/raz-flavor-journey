@@ -59,26 +59,46 @@ const PreRollCarousel = () => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev + 1) % preRolls.length);
-    setTimeout(() => setIsAnimating(false), 500);
+    setTimeout(() => setIsAnimating(false), 300);
   };
 
   const prevSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev - 1 + preRolls.length) % preRolls.length);
-    setTimeout(() => setIsAnimating(false), 500);
+    setTimeout(() => setIsAnimating(false), 300);
   };
 
   const goToSlide = (index: number) => {
     if (isAnimating || index === currentIndex) return;
     setIsAnimating(true);
     setCurrentIndex(index);
-    setTimeout(() => setIsAnimating(false), 500);
+    setTimeout(() => setIsAnimating(false), 300);
   };
+
+  // Handle scroll navigation
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      if (Math.abs(e.deltaY) > 10) {
+        if (e.deltaY > 0) {
+          nextSlide();
+        } else {
+          prevSlide();
+        }
+      }
+    };
+
+    const container = document.getElementById('preroll-carousel');
+    if (container) {
+      container.addEventListener('wheel', handleWheel, { passive: false });
+      return () => container.removeEventListener('wheel', handleWheel);
+    }
+  }, []);
 
   // Auto-play functionality
   useEffect(() => {
-    const interval = setInterval(nextSlide, 6000);
+    const interval = setInterval(nextSlide, 8000);
     return () => clearInterval(interval);
   }, []);
 
@@ -92,130 +112,92 @@ const PreRollCarousel = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-background overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section id="preroll-carousel" className="relative h-[300px] bg-background overflow-hidden">
+      {/* Background with smooth transitions */}
       <div 
-        className="absolute inset-0 transition-all duration-1000 ease-in-out"
-        style={{
-          backgroundImage: `url(${currentPreRoll.image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'blur(20px)',
-          transform: 'scale(1.1)'
-        }}
+        className={`absolute inset-0 bg-gradient-to-r ${currentPreRoll.gradient} opacity-5 transition-all duration-700 ease-out`}
       />
-      <div className="absolute inset-0 bg-background/85 backdrop-blur-sm" />
-      <div className={`absolute inset-0 bg-gradient-to-r ${currentPreRoll.gradient} opacity-10 transition-all duration-1000`} />
-
+      
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center">
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+      <div className="relative z-10 h-full flex items-center">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
             
             {/* Left Side - Pre-Roll Image with 3D Effect */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative group cursor-pointer">
-                {/* 3D Pre-Roll Container */}
+            <div className="flex justify-center">
+              <div className={`relative group cursor-pointer transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
                 <div 
-                  className={`relative w-80 h-96 transition-all duration-700 ease-out transform group-hover:scale-110 group-hover:rotate-y-12 ${currentPreRoll.glowColor} group-hover:shadow-2xl`}
+                  className={`relative w-48 h-32 transition-all duration-500 ease-out transform group-hover:scale-110 group-hover:-rotate-12 ${currentPreRoll.glowColor} group-hover:shadow-xl`}
                   style={{
                     transformStyle: 'preserve-3d',
-                    perspective: '1000px'
+                    perspective: '800px'
                   }}
                 >
-                  {/* Pre-Roll Base Image */}
-                  <div className="absolute inset-0 transition-transform duration-700 group-hover:rotateY-6">
+                  {/* Pre-Roll Base Image - Horizontal */}
+                  <div className="absolute inset-0 transition-transform duration-500 group-hover:rotateY-12">
                     <img
                       src={prerollBase}
                       alt={`${currentPreRoll.name} Pre-Roll`}
-                      className="w-full h-full object-contain drop-shadow-2xl"
+                      className="w-full h-full object-contain drop-shadow-lg transform rotate-90"
                     />
                   </div>
                   
                   {/* Floating Brand Typography */}
-                  <div className="absolute -top-8 -right-8 transition-transform duration-700 group-hover:translate-x-2 group-hover:-translate-y-2">
+                  <div className="absolute -top-2 -right-4 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1">
                     <img
                       src={prerollTypography}
                       alt="RAZ Typography"
-                      className="w-32 h-32 object-contain opacity-80"
+                      className="w-16 h-16 object-contain opacity-70"
                     />
                   </div>
 
                   {/* Glow Effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${currentPreRoll.gradient} opacity-20 rounded-full blur-xl scale-75 group-hover:scale-90 transition-all duration-700`} />
-                </div>
-
-                {/* Floating Particles */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className={`absolute w-2 h-2 bg-gradient-to-r ${currentPreRoll.gradient} rounded-full opacity-60 animate-float`}
-                      style={{
-                        left: `${20 + (i * 15)}%`,
-                        top: `${30 + (i * 10)}%`,
-                        animationDelay: `${i * 0.5}s`,
-                        animationDuration: `${3 + i}s`
-                      }}
-                    />
-                  ))}
+                  <div className={`absolute inset-0 bg-gradient-to-t ${currentPreRoll.gradient} opacity-10 rounded-full blur-lg scale-75 group-hover:scale-90 transition-all duration-500`} />
                 </div>
               </div>
             </div>
 
-            {/* Right Side - Product Information */}
-            <div className="space-y-8 text-center lg:text-left">
+            {/* Center - Product Information */}
+            <div className={`space-y-4 text-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
               {/* Type Badge */}
-              <div className="flex justify-center lg:justify-start">
-                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-sm shadow-lg`}>
+              <div className="flex justify-center">
+                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-xs`}>
                   {getTypeIcon(currentPreRoll.type)}
                   <span>{currentPreRoll.type}</span>
                 </div>
               </div>
 
               {/* Product Name */}
-              <div className="space-y-4">
-                <h1 className="font-druk text-4xl md:text-6xl lg:text-7xl text-foreground tracking-tight">
-                  {currentPreRoll.name}
-                </h1>
-                <div className={`h-1 w-32 bg-gradient-to-r ${currentPreRoll.gradient} rounded-full mx-auto lg:mx-0`} />
-              </div>
-
+              <h2 className="font-druk text-3xl lg:text-4xl text-foreground tracking-tight">
+                {currentPreRoll.name}
+              </h2>
+              
               {/* Description */}
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mx-auto">
                 {currentPreRoll.description}
               </p>
+            </div>
 
-              {/* Product Stats Grid */}
-              <div className="grid grid-cols-2 gap-6 max-w-md mx-auto lg:mx-0">
-                <div className="glass p-4 rounded-2xl text-center">
-                  <div className="text-2xl font-druk text-foreground">{currentPreRoll.thc}</div>
-                  <div className="text-sm text-muted-foreground font-semibold">THC Content</div>
+            {/* Right Side - Stats & CTA */}
+            <div className={`space-y-4 text-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
+              {/* Quick Stats */}
+              <div className="flex justify-center gap-4">
+                <div className="glass p-2 rounded-lg text-center min-w-[60px]">
+                  <div className="text-lg font-druk text-foreground">{currentPreRoll.thc}</div>
+                  <div className="text-xs text-muted-foreground">THC</div>
                 </div>
-                <div className="glass p-4 rounded-2xl text-center">
-                  <div className="text-2xl font-druk text-foreground">{currentPreRoll.weight}</div>
-                  <div className="text-sm text-muted-foreground font-semibold">Premium Weight</div>
-                </div>
-              </div>
-
-              {/* Effects & Flavor */}
-              <div className="space-y-4">
-                <div className="glass p-4 rounded-2xl">
-                  <h3 className="font-bold text-foreground mb-2">Effects</h3>
-                  <p className="text-muted-foreground">{currentPreRoll.effects}</p>
-                </div>
-                <div className="glass p-4 rounded-2xl">
-                  <h3 className="font-bold text-foreground mb-2">Flavor Profile</h3>
-                  <p className="text-muted-foreground">{currentPreRoll.flavor}</p>
+                <div className="glass p-2 rounded-lg text-center min-w-[60px]">
+                  <div className="text-lg font-druk text-foreground">{currentPreRoll.weight}</div>
+                  <div className="text-xs text-muted-foreground">Weight</div>
                 </div>
               </div>
 
               {/* CTA Button */}
               <Button 
-                size="lg" 
-                className={`px-8 py-4 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-lg rounded-2xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-2xl`}
+                size="sm"
+                className={`px-6 py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg`}
               >
-                Shop {currentPreRoll.name}
+                Shop Now
               </Button>
             </div>
           </div>
@@ -229,9 +211,9 @@ const PreRollCarousel = () => {
           size="icon"
           onClick={prevSlide}
           disabled={isAnimating}
-          className="w-12 h-12 rounded-full glass border border-white/20 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+          className="w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-4 h-4" />
         </Button>
       </div>
 
@@ -241,31 +223,31 @@ const PreRollCarousel = () => {
           size="icon"
           onClick={nextSlide}
           disabled={isAnimating}
-          className="w-12 h-12 rounded-full glass border border-white/20 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+          className="w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-4 h-4" />
         </Button>
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
         {preRolls.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
             disabled={isAnimating}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentIndex 
-                ? `bg-gradient-to-r ${currentPreRoll.gradient} shadow-lg scale-125` 
-                : 'bg-white/30 hover:bg-white/50'
+                ? `bg-gradient-to-r ${currentPreRoll.gradient} shadow-md scale-125` 
+                : 'bg-white/20 hover:bg-white/40'
             }`}
           />
         ))}
       </div>
 
       {/* Product Counter */}
-      <div className="absolute top-8 right-8 glass px-4 py-2 rounded-full border border-white/20 z-20">
-        <span className="text-sm font-bold text-foreground">
+      <div className="absolute top-4 right-4 glass px-3 py-1 rounded-full border border-white/10 z-20">
+        <span className="text-xs font-bold text-foreground">
           {String(currentIndex + 1).padStart(2, '0')} / {String(preRolls.length).padStart(2, '0')}
         </span>
       </div>
