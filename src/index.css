@@ -6,53 +6,53 @@
 
 @layer base {
   :root {
-    /* RAZ Brand Colors - Exact from Brand Book */
+    /* RAZ Brand Colors - Vivid & Modern */
     --raz-white: 0 0% 100%;
-    --raz-black: 210 6% 12%;
-    --raz-red: 0 100% 50%;
-    --raz-blue: 200 100% 58%;
+    --raz-black: 220 13% 18%;
+    --raz-red: 0 85% 58%;
+    --raz-blue: 200 98% 55%;
     
-    /* Semantic Color System */
-    --background: var(--raz-black);
-    --foreground: var(--raz-white);
+    /* Semantic Color System - Clean White Base */
+    --background: var(--raz-white);
+    --foreground: var(--raz-black);
 
-    --card: var(--raz-black);
-    --card-foreground: var(--raz-white);
+    --card: var(--raz-white);
+    --card-foreground: var(--raz-black);
 
-    --popover: var(--raz-black);
-    --popover-foreground: var(--raz-white);
+    --popover: var(--raz-white);
+    --popover-foreground: var(--raz-black);
 
-    --primary: var(--raz-red);
+    --primary: var(--raz-blue);
     --primary-foreground: var(--raz-white);
 
-    --secondary: var(--raz-blue);
+    --secondary: var(--raz-red);
     --secondary-foreground: var(--raz-white);
 
-    --muted: 210 6% 20%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 220 13% 95%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: var(--raz-blue);
+    --accent: var(--raz-red);
     --accent-foreground: var(--raz-white);
 
     --destructive: var(--raz-red);
     --destructive-foreground: var(--raz-white);
 
-    --border: 210 6% 25%;
-    --input: 210 6% 15%;
+    --border: 220 13% 91%;
+    --input: 220 13% 98%;
     --ring: var(--raz-blue);
 
-    /* RAZ Premium Gradients */
+    /* RAZ Premium Gradients - Vivid & Clean */
     --gradient-hero: linear-gradient(135deg, hsl(var(--raz-blue)) 0%, hsl(var(--raz-red)) 100%);
-    --gradient-hybrid: linear-gradient(135deg, hsl(200 100% 58%) 0%, hsl(240 100% 70%) 100%);
-    --gradient-indica: linear-gradient(135deg, hsl(120 100% 30%) 0%, hsl(150 100% 40%) 100%);
-    --gradient-sativa: linear-gradient(135deg, hsl(var(--raz-red)) 0%, hsl(15 100% 60%) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    --gradient-hybrid: linear-gradient(135deg, hsl(200 98% 55%) 0%, hsl(220 100% 65%) 100%);
+    --gradient-indica: linear-gradient(135deg, hsl(120 60% 45%) 0%, hsl(150 70% 50%) 100%);
+    --gradient-sativa: linear-gradient(135deg, hsl(var(--raz-red)) 0%, hsl(15 85% 65%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(200, 236, 255, 0.15) 0%, rgba(255, 255, 255, 0.1) 100%);
     
-    /* Premium Shadows */
-    --shadow-neon: 0 0 30px hsl(var(--raz-blue) / 0.5);
-    --shadow-red-glow: 0 0 40px hsl(var(--raz-red) / 0.4);
-    --shadow-deep: 0 25px 50px -12px hsl(var(--raz-black) / 0.8);
-    --shadow-glass: 0 8px 32px rgba(0,0,0,0.3);
+    /* Premium Shadows - Adapted for White Background */
+    --shadow-neon: 0 0 30px hsl(var(--raz-blue) / 0.3);
+    --shadow-red-glow: 0 0 40px hsl(var(--raz-red) / 0.25);
+    --shadow-deep: 0 25px 50px -12px hsl(220 13% 18% / 0.15);
+    --shadow-glass: 0 8px 32px rgba(200, 236, 255, 0.2);
 
     /* Advanced Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -78,14 +78,16 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  /* Light mode - preserving original dark aesthetic */
-  .light {
-    --background: var(--raz-white);
-    --foreground: var(--raz-black);
-    --card: var(--raz-white);
-    --card-foreground: var(--raz-black);
-    --border: 210 6% 90%;
-    --input: 210 6% 95%;
+  /* Dark mode - alternate theme */
+  .dark {
+    --background: var(--raz-black);
+    --foreground: var(--raz-white);
+    --card: var(--raz-black);
+    --card-foreground: var(--raz-white);
+    --border: 220 13% 25%;
+    --input: 220 13% 15%;
+    --muted: 220 13% 20%;
+    --muted-foreground: 220 9% 70%;
   }
 
   /* Custom Font Face for Druk Wide */
@@ -118,7 +120,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: hsl(var(--raz-black));
+    background: hsl(var(--muted));
   }
 
   ::-webkit-scrollbar-thumb {
