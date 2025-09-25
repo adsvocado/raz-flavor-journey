@@ -40,7 +40,7 @@ const ProductStorytellingScroll = () => {
           <div>
             <div className="text-center lg:text-left mb-12">
               <h2 className="font-druk text-4xl lg:text-5xl text-foreground mb-6">
-                Trusted Quality
+                Lab Tested
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 RAZ delivers an unparalleled smoking experience with precision-crafted pre-rolls that blend innovation with tradition.
