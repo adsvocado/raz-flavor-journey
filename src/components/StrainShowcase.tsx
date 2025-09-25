@@ -181,8 +181,7 @@ const StrainShowcase = () => {
                   </h3>
                   
                   <div className="text-center">
-                    <span className="text-2xl font-poppins-bold text-foreground">1.5G</span>
-                    <span className="text-sm text-muted-foreground ml-2">THC-P Diamond Infused</span>
+                    <span className="text-2xl font-poppins-bold text-foreground">three worlds</span>
                   </div>
                 </div>
               </div>
