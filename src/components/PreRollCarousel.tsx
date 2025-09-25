@@ -7,8 +7,8 @@ import alaskanTitle from '@/assets/alaskan-title.png';
 import alienCookies from '@/assets/alien-cookies.jpg';
 import strawberryKush from '@/assets/strawberry-kush.jpg';
 import alazkanThunderfuck from '@/assets/alazkan-thunderfuck.jpg';
-import prerollVerde from '@/assets/preroll-verde.png';
-import prerollRojo from '@/assets/preroll-rojo.png';
+import prerollVerde from '@/assets/preroll-verde-2.png';
+import prerollRojo from '@/assets/preroll-rojo-2.png';
 const preRolls = [{
   id: 1,
   name: 'Alien Cookies',
@@ -17,7 +17,7 @@ const preRolls = [{
   flavor: 'Sweet, Earthy, Vanilla',
   thc: '28-32%',
   weight: '1.5G',
-  image: alienCookies,
+  image: razPrerollClean,
   gradient: 'from-green-500 via-emerald-400 to-teal-300',
   glowColor: 'shadow-green-500/30',
   description: 'Perfect for evening relaxation and stress relief.'
@@ -29,7 +29,7 @@ const preRolls = [{
   flavor: 'Berry, Sweet, Fruity',
   thc: '24-28%',
   weight: '1.5G',
-  image: strawberryKush,
+  image: prerollRojo,
   gradient: 'from-red-500 via-pink-400 to-rose-300',
   glowColor: 'shadow-red-500/30',
   description: 'Ideal for daytime creativity and social activities.'
@@ -41,7 +41,7 @@ const preRolls = [{
   flavor: 'Pine, Citrus, Diesel',
   thc: '26-30%',
   weight: '1.5G',
-  image: alazkanThunderfuck,
+  image: razPrerollClean,
   gradient: 'from-blue-500 via-cyan-400 to-sky-300',
   glowColor: 'shadow-blue-500/30',
   description: 'Perfect balance of mind and body effects.'
@@ -152,8 +152,8 @@ const PreRollCarousel = () => {
               <div className={`relative transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
                 <div className="relative w-80 h-48 flex items-center justify-center">
                   <img 
-                    src={razPrerollClean} 
-                    alt="RAZ Pre-Roll" 
+                    src={currentPreRoll.image} 
+                    alt={`RAZ ${currentPreRoll.name} Pre-Roll`} 
                     className="w-full h-full object-contain drop-shadow-2xl transform rotate-90" 
                   />
                 </div>
