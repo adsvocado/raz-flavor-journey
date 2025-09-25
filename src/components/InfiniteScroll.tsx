@@ -1,7 +1,7 @@
 const features = [
-  '1.5G Pre-Roll Perfection',
-  '30 Bags Per Display',
-  '20 Display per case',
+  'Florida Cannabinoids',
+  'Child Proof Packaging',
+  'Legally verified & approved',
 ];
 
 const complianceText = '100% federally complaint hemp flower with total THC concentration less thank 0.3%';
