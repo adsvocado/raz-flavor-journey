@@ -10,7 +10,7 @@ const navigationItems = [
   },
   {
     name: 'Lab Test',
-    href: '/lab-test'
+    href: '/lab-testing'
   },
   {
     name: 'Contact',
@@ -19,10 +19,6 @@ const navigationItems = [
   {
     name: 'FAQs',
     href: '/faqs'
-  },
-  {
-    name: 'Learn',
-    href: '/learn'
   }
 ];
 
