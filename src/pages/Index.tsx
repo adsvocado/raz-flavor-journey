@@ -5,7 +5,6 @@ import ProductStorytellingScroll from '@/components/ProductStorytellingScroll';
 import ComplianceSection from '@/components/ComplianceSection';
 import PreRollCarousel from '@/components/PreRollCarousel';
 import NewsletterSection from '@/components/NewsletterSection';
-import Footer from '@/components/Footer';
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
       <PreRollCarousel />
       <ComplianceSection />
       <NewsletterSection />
-      <Footer />
     </main>
   );
 };
