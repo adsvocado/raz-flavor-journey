@@ -2,7 +2,7 @@ const features = [
   'Premium THC-P Diamond Infused',
   '1.5G Pre-Roll Perfection',
   '100% Federally Compliant',
-  'Florida Cannabinoids Certified',
+  'Florida Cannabinoids',
   'Child-Proof Packaging',
   'Legally Verified & Approved',
   'Three Distinct Strain Profiles',
