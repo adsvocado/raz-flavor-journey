@@ -116,11 +116,22 @@ const LabTesting = () => {
         <motion.img
           src={razHeroImage}
           alt="RAZ THC-P Diamond Infused Pre-Rolls"
-          className="w-full h-auto object-contain"
+          className="w-full h-auto object-contain opacity-70"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 0.7, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60" />
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        >
+          <h1 className="font-druk text-5xl lg:text-7xl text-white text-center drop-shadow-2xl">
+            LAB RESULTS
+          </h1>
+        </motion.div>
       </section>
 
       {/* Text Section */}
@@ -132,9 +143,6 @@ const LabTesting = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h1 className="font-druk text-5xl lg:text-6xl text-foreground mb-8">
-              LAB RESULTS
-            </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               All RAZ Pre-Roll products are made with 100% USA indoor-grown cannabis and undergo independent lab testing to ensure quality and safety. To access the lab results for your specific product and batch number, please refer to the information provided below.
             </p>
