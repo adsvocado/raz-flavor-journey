@@ -188,7 +188,7 @@ const StrainShowcase = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="font-druk text-4xl text-foreground mb-4">
-                  Flavor Profile
+                  Strain
                 </h3>
                 <p className="text-xl text-muted-foreground leading-relaxed">
                   {currentStrain.flavor}
