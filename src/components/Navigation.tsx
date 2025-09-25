@@ -17,7 +17,7 @@ const navigationItems = [
     href: '/contact'
   },
   {
-    name: 'FAQs',
+    name: 'Wholesale Portal',
     href: '/faqs'
   }
 ];
