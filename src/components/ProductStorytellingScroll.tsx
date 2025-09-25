@@ -88,7 +88,7 @@ const ProductStorytellingScroll = () => {
             {/* Call to Action */}
             <div className="text-center lg:text-left mt-8">
               <button className="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300">
-                View All Products
+                View Lab Testing
               </button>
             </div>
           </div>
