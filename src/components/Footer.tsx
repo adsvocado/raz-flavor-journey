@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import razLogo from '@/assets/raz-logo.png';
+import razLogo from '@/assets/logo_raz.png';
 const navigationItems = [{
   name: 'Home',
   href: '/'

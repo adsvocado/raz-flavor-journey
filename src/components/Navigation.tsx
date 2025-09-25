@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import razLogo from '@/assets/raz-logo.png';
+import razLogo from '@/assets/logo_raz.png';
 
 const navigationItems = [
   {
