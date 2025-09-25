@@ -31,7 +31,8 @@ const strains: Strain[] = [
     type: 'HYBRID',
     flavor: 'This hybrid offers a perfect balance of relaxation and energy. Ideal for a smooth, well-rounded experience any time of day.',
     effects: ['Euphoric', 'Creative', 'Balanced', 'Uplifting'],
-    description: 'Experience the perfect balance of mind and body with this legendary Alaskan strain. Known for its potent effects and unique flavor profile.',
+    description: 'Known for its bold, earthy aroma and powerful effects, this hybrid offers a balanced experience. Expect a clear, cerebral buzz paired with deep body relaxation.
+',
     color: 'blue',
     gradient: 'bg-gradient-hybrid',
     images: [alaskanThunderfuckBox, alaskanThunderfuckProducts, alaskanThunderfuckSingle]
@@ -42,7 +43,7 @@ const strains: Strain[] = [
     type: 'INDICA',
     flavor: 'This indica provides deep relaxation and calm for both body and mind. Best for unwinding and getting a restful night’s sleep.',
     effects: ['Relaxing', 'Sedating', 'Body High', 'Sleep Aid'],
-    description: 'Unwind with this otherworldly indica blend. Perfect for evening relaxation and deep, restful sleep.',
+    description: 'With rich, sweet notes and a smooth smoke, this indica brings deep calm and full-body relaxation. Ideal for unwinding and enjoying a peaceful night.',
     color: 'green',
     gradient: 'bg-gradient-indica',
     images: [alienCookiesBox, alienCookiesProducts, alienCookiesSingle]
@@ -53,7 +54,8 @@ const strains: Strain[] = [
     type: 'SATIVA',
     flavor: 'This sativa delivers uplifting, energizing effects that boost creativity and focus. Perfect for daytime use and staying active.',
     effects: ['Energizing', 'Focus', 'Creative', 'Mood Boost'],
-    description: 'Elevate your day with this delicious sativa. Bursting with fruity flavors and energizing effects.',
+    description: 'Sweet and fruity with a burst of strawberry flavor, this sativa delivers an uplifting, energizing high. Perfect for boosting creativity and keeping spirits bright throughout the day.
+',
     color: 'red',
     gradient: 'bg-gradient-sativa',
     images: [strawberryKushBox, strawberryKushProducts, strawberryKushSingle]
