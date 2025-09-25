@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import alaskanThunderfuckImage from '@/assets/alaskan-thunderfuck.jpg';
-import strawberryKushImage from '@/assets/strawberry-kush.jpg';
-import alienCookiesImage from '@/assets/alien-cookies.jpg';
+import alaskanThunderfuckBox from '@/assets/alaskan-thunderfuck-box.png';
+import strawberryKushBox from '@/assets/strawberry-kush-box.png';
+import alienCookiesBox from '@/assets/alien-cookies-box.png';
 
 interface Strain {
   id: string;
@@ -27,7 +27,7 @@ const strains: Strain[] = [
     description: 'Experience the perfect balance of mind and body with this legendary Alaskan strain. Known for its potent effects and unique flavor profile.',
     color: 'blue',
     gradient: 'bg-gradient-hybrid',
-    image: alaskanThunderfuckImage
+    image: alaskanThunderfuckBox
   },
   {
     id: 'alien',
@@ -38,7 +38,7 @@ const strains: Strain[] = [
     description: 'Unwind with this otherworldly indica blend. Perfect for evening relaxation and deep, restful sleep.',
     color: 'green',
     gradient: 'bg-gradient-indica',
-    image: alienCookiesImage
+    image: alienCookiesBox
   },
   {
     id: 'strawberry',
@@ -49,19 +49,29 @@ const strains: Strain[] = [
     description: 'Elevate your day with this delicious sativa. Bursting with fruity flavors and energizing effects.',
     color: 'red',
     gradient: 'bg-gradient-sativa',
-    image: strawberryKushImage
+    image: strawberryKushBox
   }
 ];
 
 const StrainShowcase = () => {
   const [activeStrain, setActiveStrain] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Auto-carousel functionality
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveStrain(prev => (prev + 1) % strains.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   const currentStrain = strains[activeStrain];
 
@@ -72,6 +82,8 @@ const StrainShowcase = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Background with parallax effect */}
       <div 
@@ -120,7 +132,7 @@ const StrainShowcase = () => {
                     <img
                       src={currentStrain.image}
                       alt={currentStrain.name}
-                      className="w-full max-w-sm mx-auto rounded-xl transform rotate-3 hover:rotate-0 transition-transform duration-500"
+                      className="w-full max-w-sm mx-auto rounded-xl transform rotate-3 transition-transform duration-500"
                     />
                     <div className={`absolute -inset-4 ${currentStrain.gradient} opacity-20 rounded-xl blur-xl`} />
                   </div>
