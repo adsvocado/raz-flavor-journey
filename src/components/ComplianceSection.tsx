@@ -96,18 +96,7 @@ const ComplianceSection = () => {
         </div>
 
         {/* Website and contact */}
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-4">
-            Learn more about our compliance standards and certifications
-          </p>
-          <a
-            href="https://www.razbrand.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-poppins-bold text-2xl text-foreground hover:text-primary transition-colors duration-300 neon-text"
-          >
-            www.razbrand.com
-          </a>
+        <div className="text-center mt-12">      
         </div>
       </div>
     </motion.section>
