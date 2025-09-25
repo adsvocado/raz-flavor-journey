@@ -7,6 +7,9 @@ import alienCookiesBox from '@/assets/alien-cookies-box.png';
 import alaskanThunderfuckProducts from '@/assets/alaskan-thunderfuck-products.png';
 import strawberryKushProducts from '@/assets/strawberry-kush-products.png';
 import alienCookiesProducts from '@/assets/alien-cookies-products.png';
+import alaskanThunderfuckSingle from '@/assets/alaskan-thunderfuck-single.jpg';
+import strawberryKushSingle from '@/assets/strawberry-kush-single.jpg';
+import alienCookiesSingle from '@/assets/alien-cookies-single.jpg';
 
 interface Strain {
   id: string;
@@ -30,7 +33,7 @@ const strains: Strain[] = [
     description: 'Experience the perfect balance of mind and body with this legendary Alaskan strain. Known for its potent effects and unique flavor profile.',
     color: 'blue',
     gradient: 'bg-gradient-hybrid',
-    images: [alaskanThunderfuckBox, alaskanThunderfuckProducts]
+    images: [alaskanThunderfuckBox, alaskanThunderfuckProducts, alaskanThunderfuckSingle]
   },
   {
     id: 'alien',
@@ -41,7 +44,7 @@ const strains: Strain[] = [
     description: 'Unwind with this otherworldly indica blend. Perfect for evening relaxation and deep, restful sleep.',
     color: 'green',
     gradient: 'bg-gradient-indica',
-    images: [alienCookiesBox, alienCookiesProducts]
+    images: [alienCookiesBox, alienCookiesProducts, alienCookiesSingle]
   },
   {
     id: 'strawberry',
@@ -52,7 +55,7 @@ const strains: Strain[] = [
     description: 'Elevate your day with this delicious sativa. Bursting with fruity flavors and energizing effects.',
     color: 'red',
     gradient: 'bg-gradient-sativa',
-    images: [strawberryKushBox, strawberryKushProducts]
+    images: [strawberryKushBox, strawberryKushProducts, strawberryKushSingle]
   }
 ];
 
@@ -154,7 +157,7 @@ const StrainShowcase = () => {
             <div className="relative">
               <div className="strain-item">
                 <div className="product-card p-8 text-center">
-                  <div className="relative mb-6 group">
+                  <div className="relative mb-6">
                     <img
                       src={currentStrain.images[activeImageIndex]}
                       alt={currentStrain.name}
@@ -167,13 +170,13 @@ const StrainShowcase = () => {
                       <>
                         <button
                           onClick={prevImage}
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300 opacity-0 group-hover:opacity-100"
+                          className="absolute left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
                         >
                           <ChevronLeft className="w-4 h-4 mx-auto" />
                         </button>
                         <button
                           onClick={nextImage}
-                          className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300 opacity-0 group-hover:opacity-100"
+                          className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
                         >
                           <ChevronRight className="w-4 h-4 mx-auto" />
                         </button>
