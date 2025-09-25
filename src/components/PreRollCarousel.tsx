@@ -4,35 +4,33 @@ import { ChevronLeft, ChevronRight, Leaf, Zap, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import razPrerollClean from '@/assets/raz-preroll-clean.png';
 import alaskanTitle from '@/assets/alaskan-title.png';
-import alienCookies from '@/assets/alien-cookies.jpg';
-import strawberryKush from '@/assets/strawberry-kush.jpg';
-import alazkanThunderfuck from '@/assets/alazkan-thunderfuck.jpg';
 import prerollVerde from '@/assets/preroll-verde-2.png';
 import prerollRojo from '@/assets/preroll-rojo-2.png';
+import rainbowBackground from '@/assets/rainbow-background.png';
 const preRolls = [{
   id: 1,
-  name: 'Alien Cookies',
+  name: 'Green Dream',
   type: 'INDICA',
-  effects: 'Relaxing, Euphoric, Sleepy',
-  flavor: 'Sweet, Earthy, Vanilla',
-  thc: '28-32%',
+  effects: 'Calming, Peaceful, Relaxing',
+  flavor: 'Herbal, Earthy, Pine',
+  thc: '25-29%',
   weight: '1.5G',
-  image: razPrerollClean,
-  gradient: 'from-green-500 via-emerald-400 to-teal-300',
-  glowColor: 'shadow-green-500/30',
-  description: 'Perfect for evening relaxation and stress relief.'
+  image: prerollVerde,
+  gradient: 'from-green-600 via-green-500 to-emerald-400',
+  glowColor: 'shadow-green-600/30',
+  description: 'Deep relaxation with natural herbal essence.'
 }, {
   id: 2,
-  name: 'Strawberry Kush',
+  name: 'Cherry Blaze',
   type: 'SATIVA',
-  effects: 'Energizing, Creative, Uplifting',
-  flavor: 'Berry, Sweet, Fruity',
-  thc: '24-28%',
+  effects: 'Energetic, Focused, Uplifting',
+  flavor: 'Cherry, Spicy, Sweet',
+  thc: '27-31%',
   weight: '1.5G',
   image: prerollRojo,
-  gradient: 'from-red-500 via-pink-400 to-rose-300',
-  glowColor: 'shadow-red-500/30',
-  description: 'Ideal for daytime creativity and social activities.'
+  gradient: 'from-red-600 via-red-500 to-pink-400',
+  glowColor: 'shadow-red-600/30',
+  description: 'Fiery energy boost with cherry sweetness.'
 }, {
   id: 3,
   name: 'Alaskan Thunderfuck',
@@ -45,30 +43,6 @@ const preRolls = [{
   gradient: 'from-blue-500 via-cyan-400 to-sky-300',
   glowColor: 'shadow-blue-500/30',
   description: 'Perfect balance of mind and body effects.'
-}, {
-  id: 4,
-  name: 'Green Dream',
-  type: 'INDICA',
-  effects: 'Calming, Peaceful, Relaxing',
-  flavor: 'Herbal, Earthy, Pine',
-  thc: '25-29%',
-  weight: '1.5G',
-  image: prerollVerde,
-  gradient: 'from-green-600 via-green-500 to-emerald-400',
-  glowColor: 'shadow-green-600/30',
-  description: 'Deep relaxation with natural herbal essence.'
-}, {
-  id: 5,
-  name: 'Cherry Blaze',
-  type: 'SATIVA',
-  effects: 'Energetic, Focused, Uplifting',
-  flavor: 'Cherry, Spicy, Sweet',
-  thc: '27-31%',
-  weight: '1.5G',
-  image: prerollRojo,
-  gradient: 'from-red-600 via-red-500 to-pink-400',
-  glowColor: 'shadow-red-600/30',
-  description: 'Fiery energy boost with cherry sweetness.'
 }];
 const PreRollCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -133,14 +107,23 @@ const PreRollCarousel = () => {
   };
   return <motion.section 
     id="preroll-carousel" 
-    className="relative h-[300px] bg-background overflow-hidden"
+    className="relative h-[300px] overflow-hidden"
+    style={{
+      backgroundImage: `url(${rainbowBackground})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
   >
+      {/* Semi-transparent overlay */}
+      <div className="absolute inset-0 bg-background/80" />
+      
       {/* Background with smooth transitions */}
-      <div className={`absolute inset-0 bg-gradient-to-r ${currentPreRoll.gradient} opacity-5 transition-all duration-700 ease-out`} />
+      <div className={`absolute inset-0 bg-gradient-to-r ${currentPreRoll.gradient} opacity-10 transition-all duration-700 ease-out`} />
       
       {/* Main Content */}
       <div className="relative z-10 h-full flex items-center">
