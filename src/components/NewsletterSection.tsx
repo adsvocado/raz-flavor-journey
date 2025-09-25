@@ -21,11 +21,9 @@ const NewsletterSection = () => {
       duration: 4000
     });
   };
-  return <motion.section className="relative py-20 overflow-hidden" style={{
+  return <motion.section className="relative py-20 overflow-hidden bg-center bg-cover bg-no-repeat" style={{
     backgroundImage: `url(${newsletterBackground})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
+    imageRendering: '-webkit-optimize-contrast'
   }} initial={{
     opacity: 0,
     y: 50
