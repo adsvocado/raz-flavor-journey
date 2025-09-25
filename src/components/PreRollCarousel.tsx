@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Leaf, Zap, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import razPrerollClean from '@/assets/raz-preroll-clean.png';
@@ -47,7 +47,17 @@ const preRolls = [{
 const PreRollCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const currentPreRoll = preRolls[currentIndex];
+
+  // Parallax effect
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
   const nextSlide = () => {
     if (isAnimating) return;
     setIsAnimating(true);
@@ -106,21 +116,29 @@ const PreRollCarousel = () => {
     }
   };
   return <motion.section 
+    ref={sectionRef}
     id="preroll-carousel" 
     className="relative h-[300px] overflow-hidden"
-    style={{
-      backgroundImage: `url(${rainbowBackground})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
-    }}
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
   >
-      {/* Semi-transparent overlay */}
-      <div className="absolute inset-0 bg-white/20" />
+      {/* Parallax Background */}
+      <motion.div 
+        className="absolute inset-0 w-full h-full"
+        style={{ 
+          y,
+          scale,
+          backgroundImage: `url(${rainbowBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
+      
+      {/* Enhanced overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-white/30 backdrop-blur-[1px]" />
       
       {/* Main Content */}
       <div className="relative z-10 h-full flex items-center">
