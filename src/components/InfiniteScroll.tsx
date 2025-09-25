@@ -4,6 +4,8 @@ const features = [
   '20 Display per case',
 ];
 
+const complianceText = '100% federally complaint hemp flower with total THC concentration less thank 0.3%';
+
 import { motion } from 'framer-motion';
 
 const InfiniteScroll = () => {
@@ -34,14 +36,14 @@ const InfiniteScroll = () => {
 
         {/* Secondary reverse scroll track */}
         <div className="flex whitespace-nowrap animate-scroll-x mt-8" style={{ animationDirection: 'reverse', animationDuration: '25s' }}>
-          {[...features.slice().reverse(), ...features.slice().reverse()].map((feature, index) => (
+          {Array(6).fill(complianceText).map((text, index) => (
             <div
               key={index}
               className="inline-flex items-center mx-8 flex-shrink-0"
             >
               <div className="w-2 h-2 bg-secondary rounded-full mx-6 flex-shrink-0" />
               <span className="font-poppins-bold text-lg md:text-2xl text-white/70">
-                {feature}
+                {text}
               </span>
             </div>
           ))}
