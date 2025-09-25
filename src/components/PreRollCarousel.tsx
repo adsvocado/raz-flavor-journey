@@ -118,7 +118,7 @@ const PreRollCarousel = () => {
   return <motion.section 
     ref={sectionRef}
     id="preroll-carousel" 
-    className="relative h-[300px] overflow-hidden"
+    className="relative h-[200px] sm:h-[300px] overflow-hidden"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
@@ -142,13 +142,13 @@ const PreRollCarousel = () => {
       
       {/* Main Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
+        <div className="container mx-auto px-2 sm:px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8 items-center max-w-6xl mx-auto">
             
             {/* Left Side - Large Clean Pre-Roll */}
             <div className="flex justify-center">
               <div className={`relative transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
-                <div className="relative w-80 h-48 flex items-center justify-center">
+                <div className="relative w-48 h-32 sm:w-80 sm:h-48 flex items-center justify-center">
                   <img 
                     src={currentPreRoll.image} 
                     alt={`RAZ ${currentPreRoll.name} Pre-Roll`} 
@@ -159,9 +159,9 @@ const PreRollCarousel = () => {
             </div>
 
             {/* Center - Title Image with Type */}
-            <div className={`flex flex-col items-center justify-center space-y-4 transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
+            <div className={`flex flex-col items-center justify-center space-y-2 sm:space-y-4 transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
               {/* Type Badge Above */}
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-sm shadow-lg`}>
+              <div className={`inline-flex items-center gap-1 sm:gap-2 px-2 py-1 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold text-xs sm:text-sm shadow-lg`}>
                 {getTypeIcon(currentPreRoll.type)}
                 <span>{currentPreRoll.type}</span>
               </div>
@@ -171,27 +171,27 @@ const PreRollCarousel = () => {
                 <img 
                   src={alaskanTitle} 
                   alt={currentPreRoll.name} 
-                  className="h-16 object-contain" 
+                  className="h-10 sm:h-16 object-contain" 
                 />
               </div>
             </div>
 
             {/* Right Side - Stats & CTA */}
-            <div className={`space-y-4 text-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
+            <div className={`space-y-3 sm:space-y-4 text-center transition-all duration-700 ease-out ${isAnimating ? 'translate-x-8 opacity-40' : 'translate-x-0 opacity-100'}`}>
               {/* Quick Stats */}
-              <div className="flex justify-center gap-4">
-                <div className="glass p-2 rounded-lg text-center min-w-[60px]">
-                  <div className="text-lg font-druk text-foreground">{currentPreRoll.thc}</div>
+              <div className="flex justify-center gap-2 sm:gap-4">
+                <div className="glass p-1.5 sm:p-2 rounded-lg text-center min-w-[50px] sm:min-w-[60px]">
+                  <div className="text-sm sm:text-lg font-druk text-foreground">{currentPreRoll.thc}</div>
                   <div className="text-xs text-muted-foreground">THC</div>
                 </div>
-                <div className="glass p-2 rounded-lg text-center min-w-[60px]">
-                  <div className="text-lg font-druk text-foreground">{currentPreRoll.weight}</div>
+                <div className="glass p-1.5 sm:p-2 rounded-lg text-center min-w-[50px] sm:min-w-[60px]">
+                  <div className="text-sm sm:text-lg font-druk text-foreground">{currentPreRoll.weight}</div>
                   <div className="text-xs text-muted-foreground">Weight</div>
                 </div>
               </div>
 
               {/* CTA Button */}
-              <Button size="sm" className={`px-6 py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg`}>
+              <Button size="sm" className={`px-3 py-1.5 sm:px-6 sm:py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg text-xs sm:text-sm`}>
                 View more
               </Button>
             </div>
@@ -200,25 +200,25 @@ const PreRollCarousel = () => {
       </div>
 
       {/* Navigation Controls */}
-      <div className="absolute inset-y-0 left-4 flex items-center z-20">
-        <Button variant="ghost" size="icon" onClick={prevSlide} disabled={isAnimating} className="w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300">
-          <ChevronLeft className="w-4 h-4" />
+      <div className="absolute inset-y-0 left-2 sm:left-4 flex items-center z-20">
+        <Button variant="ghost" size="icon" onClick={prevSlide} disabled={isAnimating} className="w-6 h-6 sm:w-8 sm:h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300">
+          <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
         </Button>
       </div>
 
-      <div className="absolute inset-y-0 right-4 flex items-center z-20">
-        <Button variant="ghost" size="icon" onClick={nextSlide} disabled={isAnimating} className="w-8 h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300">
-          <ChevronRight className="w-4 h-4" />
+      <div className="absolute inset-y-0 right-2 sm:right-4 flex items-center z-20">
+        <Button variant="ghost" size="icon" onClick={nextSlide} disabled={isAnimating} className="w-6 h-6 sm:w-8 sm:h-8 rounded-full glass border border-white/10 text-foreground hover:text-white hover:bg-white/10 hover:scale-110 transition-all duration-300">
+          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
         </Button>
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {preRolls.map((_, index) => <button key={index} onClick={() => goToSlide(index)} disabled={isAnimating} className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex ? `bg-gradient-to-r ${currentPreRoll.gradient} shadow-md scale-125` : 'bg-white/40 hover:bg-white/60'}`} />)}
+      <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1.5 sm:space-x-2 z-20">
+        {preRolls.map((_, index) => <button key={index} onClick={() => goToSlide(index)} disabled={isAnimating} className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${index === currentIndex ? `bg-gradient-to-r ${currentPreRoll.gradient} shadow-md scale-125` : 'bg-white/40 hover:bg-white/60'}`} />)}
       </div>
 
       {/* Product Counter */}
-      <div className="absolute top-4 right-4 glass px-3 py-1 rounded-full border border-white/10 z-20">
+      <div className="absolute top-2 sm:top-4 right-2 sm:right-4 glass px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 z-20">
         <span className="text-xs font-bold text-foreground">
           {String(currentIndex + 1).padStart(2, '0')} / {String(preRolls.length).padStart(2, '0')}
         </span>
