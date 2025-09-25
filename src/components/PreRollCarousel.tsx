@@ -128,7 +128,7 @@ const PreRollCarousel = () => {
   return <motion.section 
     ref={sectionRef}
     id="preroll-carousel" 
-    className="relative h-[350px] sm:h-[400px] overflow-hidden"
+    className="relative h-[400px] sm:h-[400px] overflow-hidden py-[15px]"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
@@ -160,7 +160,7 @@ const PreRollCarousel = () => {
             {/* Left Side - Large Clean Pre-Roll */}
             <div className="flex justify-center lg:justify-end">
               <div className={`relative transition-all duration-700 ease-out ${isAnimating ? 'scale-95 opacity-60' : 'scale-100 opacity-100'}`}>
-                <div className="relative w-40 h-28 sm:w-60 sm:h-40 lg:w-80 lg:h-60 flex items-center justify-center">
+                <div className="relative w-52 h-36 sm:w-60 sm:h-40 lg:w-80 lg:h-60 flex items-center justify-center">
                   <img 
                     src={currentPreRoll.image} 
                     alt={`RAZ ${currentPreRoll.name} Pre-Roll`} 
@@ -202,8 +202,8 @@ const PreRollCarousel = () => {
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <Button size="sm" className={`px-3 py-1.5 sm:px-6 sm:py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg text-xs sm:text-sm`}>
+              {/* CTA Button - Hidden on mobile */}
+              <Button size="sm" className={`hidden sm:block px-6 py-2 bg-gradient-to-r ${currentPreRoll.gradient} text-white font-bold rounded-xl hover:scale-105 transition-all duration-300 ${currentPreRoll.glowColor} hover:shadow-lg text-sm`}>
                 View more
               </Button>
             </div>
