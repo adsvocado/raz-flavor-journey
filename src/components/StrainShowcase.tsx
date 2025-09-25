@@ -105,18 +105,14 @@ const StrainShowcase = () => {
   const currentStrain = strains[activeStrain];
 
   return (
-    <motion.section 
+    <section 
       className="relative py-20 overflow-hidden"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Background with parallax effect */}
       <div 
-        className={`absolute inset-0 ${currentStrain.gradient} opacity-10 transition-all duration-1000`}
+        className={`absolute inset-0 ${currentStrain.gradient} opacity-10`}
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       />
 
@@ -138,10 +134,10 @@ const StrainShowcase = () => {
               <button
                 key={strain.id}
                 onClick={() => setActiveStrain(index)}
-                className={`px-6 py-3 rounded-full font-poppins-bold text-sm transition-all duration-300 ${
+                className={`px-6 py-3 rounded-full font-poppins-bold text-sm ${
                   activeStrain === index
                     ? `${strain.gradient} text-white shadow-neon`
-                    : 'text-muted-foreground hover:text-foreground'
+                    : 'text-muted-foreground'
                 }`}
               >
                 {strain.type}
@@ -236,7 +232,7 @@ const StrainShowcase = () => {
                 </p>
               </div>
 
-              <button className={`px-8 py-4 ${currentStrain.gradient} text-white font-poppins-bold text-lg rounded-2xl hover:shadow-neon transition-all duration-300 hover:scale-105`}>
+              <button className={`px-8 py-4 ${currentStrain.gradient} text-white font-poppins-bold text-lg rounded-2xl`}>
                 Experience {currentStrain.type}
               </button>
             </div>
@@ -248,7 +244,7 @@ const StrainShowcase = () => {
           {strains.map((_, index) => (
             <div
               key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full ${
                 activeStrain === index
                   ? `${strains[index].gradient} shadow-neon`
                   : 'bg-muted'
@@ -257,7 +253,7 @@ const StrainShowcase = () => {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
