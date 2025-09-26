@@ -160,7 +160,7 @@ const FAQs = () => {
               to="/contact" 
               className="inline-block px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:shadow-lg hover:scale-105"
             >
-              Contact Us
+              Contact Us {/* Updated for GitHub sync */}
             </Link>
           </motion.div>
         </div>
