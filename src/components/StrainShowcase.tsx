@@ -222,9 +222,9 @@ const StrainShowcase = () => {
 
               <button 
                 className={`px-8 py-4 ${currentStrain.gradient} text-white font-poppins-bold text-lg rounded-2xl`}
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/faqs')}
               >
-                Experience {currentStrain.type}
+                Learn More
               </button>
             </div>
           </div>
