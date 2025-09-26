@@ -52,7 +52,10 @@ const ProductStorytellingScroll = () => {
               {strainFeatures.map(strain => {
                 return <div key={strain.id} className="relative">
                   {/* Main Feature Card */}
-                  <div className="glass rounded-2xl p-6 relative overflow-hidden cursor-pointer group hover:scale-[1.02] transition-all duration-300 hover:shadow-lg border border-white/10 hover:border-white/20">
+                  <div 
+                    className="glass rounded-2xl p-6 relative overflow-hidden cursor-pointer group hover:scale-[1.02] transition-all duration-300 hover:shadow-lg border border-white/10 hover:border-white/20"
+                    onClick={() => window.open('/lab-reports.pdf', '_blank')}
+                  >
                     {/* Background Gradient */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${strain.color} opacity-10 group-hover:opacity-15 transition-opacity duration-300`} />
                     
@@ -72,9 +75,12 @@ const ProductStorytellingScroll = () => {
                           {strain.name}
                         </h3>
                         
-                        {/* View Lab Reports Text */}
-                        <p className="text-muted-foreground text-base group-hover:text-foreground transition-colors duration-300 font-medium">
-                          View Lab Reports
+                        {/* View Lab Reports Text with Underline */}
+                        <p className="text-muted-foreground text-base group-hover:text-foreground transition-colors duration-300 font-medium relative">
+                          <span className="relative inline-block">
+                            View Lab Reports
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                          </span>
                         </p>
                       </div>
                     </div>
