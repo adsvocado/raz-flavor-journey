@@ -49,7 +49,7 @@ const ProductStorytellingScroll = () => {
                 Lab Reports
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                RAZ delivers an unparalleled smoking experience with precision-crafted pre-rolls that blend innovation with tradition.
+                All our prerolls are independently lab-tested for purity, potency, and safety. Each report verifies THC, CBD, and terpene profiles, ensuring a clean, compliant and reliable smoke every time.
               </p>
             </div>
 
