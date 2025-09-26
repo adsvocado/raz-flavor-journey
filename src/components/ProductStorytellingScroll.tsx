@@ -9,17 +9,23 @@ const strainFeatures = [{
   id: 1,
   name: "Alazkan Thunderf*ck",
   logo: alaskanTitle,
-  color: "from-blue-400 to-cyan-600"
+  color: "from-blue-400 to-cyan-600",
+  hoverColor: "group-hover:text-blue-400",
+  underlineColor: "bg-blue-400"
 }, {
   id: 2,
   name: "Alien Cookies",
   logo: alienCookiesLogo,
-  color: "from-purple-400 to-pink-600"
+  color: "from-green-400 to-emerald-600",
+  hoverColor: "group-hover:text-green-400",
+  underlineColor: "bg-green-400"
 }, {
   id: 3,
   name: "Strawberry Kush",
   logo: strawberryKushLogo,
-  color: "from-green-400 to-emerald-600"
+  color: "from-red-400 to-rose-600",
+  hoverColor: "group-hover:text-red-400",
+  underlineColor: "bg-red-400"
 }];
 const ProductStorytellingScroll = () => {
   const navigate = useNavigate();
@@ -71,7 +77,7 @@ const ProductStorytellingScroll = () => {
 
                       <div className="flex-1">
                         {/* Strain Name */}
-                        <h3 className="font-druk text-2xl text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                        <h3 className={`font-druk text-2xl text-foreground mb-2 ${strain.hoverColor} transition-colors duration-300`}>
                           {strain.name}
                         </h3>
                         
@@ -79,7 +85,7 @@ const ProductStorytellingScroll = () => {
                         <p className="text-muted-foreground text-base group-hover:text-foreground transition-colors duration-300 font-medium relative">
                           <span className="relative inline-block">
                             View Lab Reports
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                            <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${strain.underlineColor} transition-all duration-300 group-hover:w-full`}></span>
                           </span>
                         </p>
                       </div>
