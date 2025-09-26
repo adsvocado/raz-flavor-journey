@@ -195,8 +195,8 @@ const PreRollCarousel = () => {
               {/* Quick Stats */}
               <div className="flex justify-center gap-2 sm:gap-4">
                 <div className="glass p-1.5 sm:p-2 rounded-lg text-center min-w-[50px] sm:min-w-[60px]">
-                  <div className="text-sm sm:text-lg font-druk text-foreground">{currentPreRoll.thc}</div>
-                  <div className="text-xs text-muted-foreground">THC</div>
+                  <div className="text-sm sm:text-lg font-druk font-bold text-foreground">THCP</div>
+                  <div className="text-xs text-muted-foreground">Cannabinoid</div>
                 </div>
                 <div className="glass p-1.5 sm:p-2 rounded-lg text-center min-w-[50px] sm:min-w-[60px]">
                   <div className="text-sm sm:text-lg font-druk text-foreground">{currentPreRoll.weight}</div>
