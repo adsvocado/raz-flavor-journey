@@ -14,7 +14,6 @@ const Index = () => {
       <StrainShowcase />
       <ProductStorytellingScroll />
       <PreRollCarousel />
-      <ComplianceSection />
       <NewsletterSection />
     </main>
   );
