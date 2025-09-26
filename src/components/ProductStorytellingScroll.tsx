@@ -98,7 +98,7 @@ const ProductStorytellingScroll = () => {
             {/* Call to Action */}
             <div className="text-center lg:text-left mt-8">
               <button onClick={() => navigate('/lab-testing')} className="px-8 py-4 bg-gradient-holographic font-poppins-bold text-lg rounded-2xl transition-all duration-300 hover:scale-105 shadow-neon text-slate-950">
-                View Lab Testing
+                View All
               </button>
             </div>
           </div>
