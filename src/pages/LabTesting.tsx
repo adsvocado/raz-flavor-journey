@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import razHeroImage from '@/assets/raz-hero-products.jpg';
+import razHeroImage from '@/assets/banner-razz-labtesting.jpg';
 import alaskanThunderfuckImage from '@/assets/alaskan-thunderfuck.jpg';
 import alaskanThunderfuckSingle from '@/assets/alaskan-thunderfuck-single.jpg';
 import alaskanThunderfuckProducts from '@/assets/alaskan-thunderfuck-products.png';

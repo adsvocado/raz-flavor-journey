@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import razHeroImage from '@/assets/raz-hero-products.jpg';
+import razHeroImage from '@/assets/banner-razz-labtesting.jpg';
 
 const faqs = [
   {

@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import razHeroImage from '@/assets/raz-hero-products.jpg';
+import razHeroImage from '@/assets/banner-razz-labtesting.jpg';
 
 // Validation schema
 const wholesaleFormSchema = z.object({

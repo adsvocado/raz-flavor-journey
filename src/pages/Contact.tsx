@@ -8,7 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
-import razHeroImage from '@/assets/raz-hero-products.jpg';
+import razHeroImage from '@/assets/banner-razz-labtesting.jpg';
 import bannerImage from '@/assets/banner-01.jpg';
 
 // Form validation schema
