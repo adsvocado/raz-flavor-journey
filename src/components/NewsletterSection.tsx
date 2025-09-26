@@ -21,10 +21,7 @@ const NewsletterSection = () => {
       duration: 4000
     });
   };
-  return <motion.section className="relative py-20 overflow-hidden bg-center bg-cover bg-no-repeat" style={{
-    backgroundImage: `url(${newsletterBackground})`,
-    imageRendering: '-webkit-optimize-contrast'
-  }} initial={{
+  return <motion.section className="relative py-20 bg-white" initial={{
     opacity: 0,
     y: 50
   }} whileInView={{
@@ -35,7 +32,6 @@ const NewsletterSection = () => {
   }} viewport={{
     once: true
   }}>
-      <div className="absolute inset-0 bg-background/20 backdrop-blur-sm"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Half - Newsletter Content */}
