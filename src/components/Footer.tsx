@@ -1,22 +1,24 @@
 import { Link } from 'react-router-dom';
 import razLogo from '@/assets/logo_raz.png';
 
-const navigationItems = [{
-  name: 'Home',
-  href: '/'
-}, {
-  name: 'Lab Test',
-  href: '/lab-test'
-}, {
-  name: 'Contact',
-  href: '/contact'
-}, {
-  name: 'FAQs',
-  href: '/faqs'
-}, {
-  name: 'Learn',
-  href: '/learn'
-}];
+const navigationItems = [
+  {
+    name: 'Home',
+    href: '/'
+  },
+  {
+    name: 'Lab Testing',
+    href: '/lab-testing'
+  },
+  {
+    name: 'Contact Us',
+    href: '/contact'
+  },
+  {
+    name: 'Wholesale Portal',
+    href: '/faqs'
+  }
+];
 
 const Footer = () => {
   return (
@@ -25,7 +27,7 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-900 to-black opacity-90"></div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           {/* Logo Section */}
           <div className="flex flex-col items-center md:items-start space-y-4">
             <Link to="/" className="hover:scale-105 transition-all duration-300 hover:brightness-110">
@@ -36,29 +38,19 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Navigation Menu */}
+          {/* Navigation Menu - Horizontal */}
           <div className="flex flex-col items-center md:items-start">
             <h3 className="font-poppins-bold mb-4 text-lg text-white">Quick Links</h3>
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-wrap gap-6">
               {navigationItems.map(item => (
                 <Link 
                   key={item.name} 
                   to={item.href} 
-                  className="text-gray-400 hover:text-white transition-colors duration-300 font-medium text-sm hover:translate-x-1 transform"
+                  className="text-gray-400 hover:text-white transition-colors duration-300 font-medium text-sm hover:scale-105 transform"
                 >
                   {item.name}
                 </Link>
               ))}
-            </div>
-          </div>
-
-          {/* Contact Info */}
-          <div className="flex flex-col items-center md:items-start">
-            <h3 className="text-lg font-poppins-bold text-white mb-4">Experience</h3>
-            <div className="text-gray-400 space-y-2 text-center md:text-left">
-              <p className="text-sm">Premium Quality</p>
-              <p className="text-sm">Lab Tested</p>
-              <p className="text-sm">Trusted Experience</p>
             </div>
           </div>
         </div>
@@ -70,11 +62,13 @@ const Footer = () => {
               © 2025 Raz
             </p>
             
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <p className="text-xs text-gray-500 leading-relaxed">
-                <strong className="text-gray-400">FDA Disclaimer:</strong> This product has not been evaluated by the Food and Drug Administration. 
-                These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, 
-                cure or prevent any disease or illness.
+                Products on this site contain a value of 0.3% or less Δ9THC (or no more than 0.3% Δ9THC).
+              </p>
+              <br />
+              <p className="text-xs text-gray-500 leading-relaxed">
+                <strong className="text-gray-400">FDA Disclosure:</strong> This product is not for use by or sale to persons under the age of 18 or 21 depending on the laws of your governing state or territory. This product should be used only as directed on the label. It should not be used if you are pregnant or nursing. Consult with a physician before use, especially if you have a medical condition or use prescription medications. A doctor's advice should be sought before using any of these products. All trademarks and copyrights are property of their respective owners and are not affiliated with nor do they endorse this product. These statements have not been evaluated by the FDA. These products are not intended to diagnose, treat, cure or prevent any disease. By using this site you agree to follow the Privacy Policy and all Terms & Conditions printed on this site. Void Where Prohibited By Law.
               </p>
             </div>
           </div>
