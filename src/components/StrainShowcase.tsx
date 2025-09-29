@@ -111,9 +111,20 @@ const StrainShowcase = () => {
       <div className="container mx-auto px-4">
         {/* Section header */}
         <div className="text-center mb-16">
-          <h2 className="font-druk text-5xl md:text-7xl text-foreground mb-4">
-            1.5G THC-P Diamond infused Preroll
-          </h2>
+          <div className="mb-4">
+            <h2 className="font-druk text-3xl md:text-5xl text-foreground leading-tight">
+              World Famous, Locally Grown,
+            </h2>
+            <h2 className="font-druk text-4xl md:text-6xl text-foreground leading-tight">
+              And Locally Rolled
+            </h2>
+            <p className="font-poppins text-lg md:text-xl text-muted-foreground mt-2">
+              Something To Remember
+            </p>
+            <p className="font-poppins-bold text-xl md:text-2xl text-foreground mt-3">
+              Explore Our Strains
+            </p>
+          </div>
         </div>
 
         {/* Interactive strain selector */}
