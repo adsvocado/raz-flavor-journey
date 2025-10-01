@@ -19,21 +19,24 @@ const products = [
     name: "Alaskan Thunderfuck",
     type: "Sativa",
     images: [alaskanThunderfuckImage, alaskanThunderfuckSingle, alaskanThunderfuckProducts],
-    gradient: "from-blue-500 to-purple-600"
+    gradient: "from-blue-500 to-purple-600",
+    pdfUrl: "/alaskan-thunderfuck-coa.pdf"
   },
   {
     id: 2,
     name: "Alien Cookies",
     type: "Hybrid",
     images: [alienCookiesImage, alienCookiesSingle, alienCookiesProducts],
-    gradient: "from-green-500 to-blue-600"
+    gradient: "from-green-500 to-blue-600",
+    pdfUrl: "/alien-cookies-coa.pdf"
   },
   {
     id: 3,
     name: "Strawberry Kush",
     type: "Indica",
     images: [strawberryKushImage, strawberryKushSingle, strawberryKushProducts],
-    gradient: "from-pink-500 to-red-600"
+    gradient: "from-pink-500 to-red-600",
+    pdfUrl: "/strawberry-kush-coa.pdf"
   }
 ];
 
@@ -101,7 +104,10 @@ const ProductCarousel = ({ product }: { product: any }) => {
         <p className="text-muted-foreground text-sm mb-4">{product.type}</p>
         
         {/* CTA Button */}
-        <button className={`w-full py-3 px-6 bg-gradient-to-r ${product.gradient} text-white font-poppins-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105`}>
+        <button 
+          onClick={() => window.open(product.pdfUrl, '_blank')}
+          className={`w-full py-3 px-6 bg-gradient-to-r ${product.gradient} text-white font-poppins-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105`}
+        >
           View Lab Results
         </button>
       </div>

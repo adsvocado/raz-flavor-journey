@@ -11,21 +11,24 @@ const strainFeatures = [{
   logo: alaskanTitle,
   color: "from-blue-400 to-cyan-600",
   hoverColor: "group-hover:text-blue-400",
-  underlineColor: "bg-blue-400"
+  underlineColor: "bg-blue-400",
+  pdfUrl: "/alaskan-thunderfuck-coa.pdf"
 }, {
   id: 2,
   name: "Alien Cookies",
   logo: alienCookiesLogo,
   color: "from-green-400 to-emerald-600",
   hoverColor: "group-hover:text-green-400",
-  underlineColor: "bg-green-400"
+  underlineColor: "bg-green-400",
+  pdfUrl: "/alien-cookies-coa.pdf"
 }, {
   id: 3,
   name: "Strawberry Kush",
   logo: strawberryKushLogo,
   color: "from-red-400 to-rose-600",
   hoverColor: "group-hover:text-red-400",
-  underlineColor: "bg-red-400"
+  underlineColor: "bg-red-400",
+  pdfUrl: "/strawberry-kush-coa.pdf"
 }];
 const ProductStorytellingScroll = () => {
   const navigate = useNavigate();
@@ -60,7 +63,7 @@ const ProductStorytellingScroll = () => {
                   {/* Main Feature Card */}
                   <div 
                     className="glass rounded-2xl p-6 relative overflow-hidden cursor-pointer group hover:scale-[1.02] transition-all duration-300 hover:shadow-lg border border-white/10 hover:border-white/20"
-                    onClick={() => window.open('/lab-reports.pdf', '_blank')}
+                    onClick={() => window.open(strain.pdfUrl, '_blank')}
                   >
                     {/* Background Gradient */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${strain.color} opacity-10 group-hover:opacity-15 transition-opacity duration-300`} />
