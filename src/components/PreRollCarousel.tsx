@@ -62,7 +62,6 @@ const PreRollCarousel = () => {
   const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const currentProduct = productTypes[currentIndex];
 
@@ -83,24 +82,21 @@ const PreRollCarousel = () => {
 
   // Auto-play functionality
   useEffect(() => {
-    if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentIndex(prev => (prev + 1) % productTypes.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, []);
 
   return (
     <motion.section 
       ref={sectionRef}
       id="preroll-carousel" 
-      className="relative h-[400px] sm:h-[450px] overflow-hidden py-[15px]"
+      className="relative min-h-[380px] sm:h-[450px] overflow-hidden py-4 sm:py-[15px]"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Parallax Background */}
       <motion.div 
