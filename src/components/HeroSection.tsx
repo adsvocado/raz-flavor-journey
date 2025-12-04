@@ -14,9 +14,9 @@ const slides = [
 ];
 
 const mobileSlides = [
-  { id: 1, src: razHeroMobile, alt: "RAZ THC-P Diamond Infused Pre-Rolls - Premium Cannabis Products" },
-  { id: 2, src: heroMobileSlide1, alt: "RAZ THCP Diamonds Pre-Rolls - Premium Cannabis Products" },
-  { id: 3, src: heroMobileSlide2, alt: "RAZ THCA Diamonds Pre-Rolls - Premium Cannabis Products" },
+  { id: 1, src: heroMobileSlide1, alt: "RAZ THCP Diamonds Pre-Rolls - Premium Cannabis Products" },
+  { id: 2, src: heroMobileSlide2, alt: "RAZ THCA Diamonds Pre-Rolls - Premium Cannabis Products" },
+  { id: 3, src: razHeroMobile, alt: "RAZ THC-P Diamond Infused Pre-Rolls - Premium Cannabis Products" },
 ];
 
 const HeroSection = () => {
