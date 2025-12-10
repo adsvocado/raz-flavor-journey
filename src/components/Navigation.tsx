@@ -1,10 +1,9 @@
-// src/components/Navigation.tsx
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import razLogo from "@/assets/logo_raz.png";
 
-const navigationItems = [
+const mainLinks = [
   { name: "Home", href: "/" },
   { name: "Lab Testing", href: "/lab-testing" },
   { name: "Contact Us", href: "/contact" },
@@ -20,23 +19,23 @@ const productLinks = [
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false); // menú mobile
   const [isProductsOpen, setIsProductsOpen] = useState(false); // dropdown desktop
-  const [isProductsMobileOpen, setIsProductsMobileOpen] = useState(false); // dropdown mobile
   const location = useLocation();
 
-  // Cerrar menús al cambiar de ruta
+  // cerrar menús cuando cambias de ruta
   useEffect(() => {
     setIsOpen(false);
     setIsProductsOpen(false);
-    setIsProductsMobileOpen(false);
   }, [location]);
+
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <>
-      {/* Desktop / main nav */}
+      {/* NAV DESKTOP + BOTÓN MOBILE */}
       <nav className="glass backdrop-blur-xl shadow-glass sticky top-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
+            {/* LOGO */}
             <Link
               to="/"
               className="hover:scale-105 transition-transform duration-300"
@@ -44,80 +43,88 @@ const Navigation = () => {
               <img src={razLogo} alt="RAZ" className="h-8 md:h-10 w-auto" />
             </Link>
 
-            {/* Desktop menu */}
+            {/* LINKS DESKTOP */}
             <div className="hidden md:flex items-center space-x-6">
-              {navigationItems
-                .filter((item) => item.name !== "Wholesale Portal") // lo metemos al final
-                .map((item) => {
-                  const isActive = location.pathname === item.href;
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
-                        isActive
-                          ? "bg-gradient-holographic-dark text-black shadow-neon"
-                          : "text-black hover:text-primary hover:shadow-glass"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  );
-                })}
+              {mainLinks.map((item) =>
+                item.name === "Wholesale Portal" ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
+                      isActive(item.href)
+                        ? "bg-gradient-holographic-dark text-black shadow-neon"
+                        : "text-black hover:text-primary hover:shadow-glass"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ) : item.name === "Contact Us" ||
+                  item.name === "Lab Testing" ||
+                  item.name === "Home" ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
+                      isActive(item.href)
+                        ? "bg-gradient-holographic-dark text-black shadow-neon"
+                        : "text-black hover:text-primary hover:shadow-glass"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ) : null
+              )}
 
-              {/* Dropdown PRODUCTS (desktop) */}
+              {/* DROPDOWN DESKTOP: PRODUCTS */}
               <div
                 className="relative"
                 onMouseEnter={() => setIsProductsOpen(true)}
                 onMouseLeave={() => setIsProductsOpen(false)}
               >
                 <button
-                  className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
-                    location.pathname.startsWith("/products")
+                  type="button"
+                  className={`flex items-center gap-1 px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
+                    location.pathname.startsWith("/products/")
                       ? "bg-gradient-holographic-dark text-black shadow-neon"
                       : "text-black hover:text-primary hover:shadow-glass"
                   }`}
                 >
                   Products
+                  <ChevronDown className="w-4 h-4" />
                 </button>
 
                 {isProductsOpen && (
-                  <div className="absolute right-0 mt-2 w-48 glass rounded-2xl border border-white/10 shadow-lg py-2 z-40">
-                    {productLinks.map((prod) => (
-                      <Link
-                        key={prod.name}
-                        to={prod.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-white/10 transition-colors"
-                      >
-                        {prod.name}
-                      </Link>
-                    ))}
+                  <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-52 glass rounded-2xl py-3 shadow-glass">
+                    <ul className="flex flex-col">
+                      {productLinks.map((product) => (
+                        <li key={product.href}>
+                          <Link
+                            to={product.href}
+                            className="block px-4 py-2 text-sm font-poppins text-foreground hover:bg-white/10"
+                          >
+                            {product.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
               </div>
 
-              {/* Wholesale Portal al final */}
-              {navigationItems
-                .filter((item) => item.name === "Wholesale Portal")
-                .map((item) => {
-                  const isActive = location.pathname === item.href;
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
-                        isActive
-                          ? "bg-gradient-holographic-dark text-black shadow-neon"
-                          : "text-black hover:text-primary hover:shadow-glass"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  );
-                })}
+              {/* Wholesale Portal a la derecha */}
+              <Link
+                to="/wholesale-portal"
+                className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
+                  isActive("/wholesale-portal")
+                    ? "bg-gradient-holographic-dark text-black shadow-neon"
+                    : "text-black hover:text-primary hover:shadow-glass"
+                }`}
+              >
+                Wholesale Portal
+              </Link>
             </div>
 
-            {/* Mobile menu button */}
+            {/* BOTÓN MOBILE */}
             <button
               onClick={() => setIsOpen((prev) => !prev)}
               className="md:hidden p-2 rounded-lg glass hover:shadow-neon transition-all duration-300"
@@ -132,66 +139,75 @@ const Navigation = () => {
         </div>
       </nav>
 
-      {/* Mobile overlay */}
+      {/* MENÚ MOBILE */}
       <div
         className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
+        {/* fondo oscuro */}
         <div className="absolute inset-0 bg-raz-black/90 backdrop-blur-xl" />
 
+        {/* tarjeta del menú */}
         <div
           className={`absolute top-20 left-4 right-4 glass rounded-2xl p-6 transition-all duration-300 ${
-            isOpen
-              ? "transform translate-y-0 opacity-100"
-              : "transform -translate-y-4 opacity-0"
+            isOpen ? "transform translate-y-0 opacity-100" : "transform -translate-y-4 opacity-0"
           }`}
         >
           <div className="space-y-3">
-            {navigationItems.map((item) => {
-              const isActive = location.pathname === item.href;
-              return (
+            {/* links principales */}
+            {mainLinks
+              .filter((l) => l.name !== "Wholesale Portal")
+              .map((item, index) => (
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`flex items-center p-3 rounded-xl transition-all duration-300 hover:scale-105 ${
-                    isActive
+                  className={`flex items-center justify-between p-3 rounded-xl transition-all duration-300 hover:scale-105 ${
+                    isActive(item.href)
                       ? "bg-gradient-holographic-dark text-black shadow-neon"
                       : "text-foreground hover:bg-white/5 hover:shadow-glass"
                   }`}
+                  style={{
+                    animationDelay: `${index * 0.05}s`,
+                    animation: isOpen ? "slide-in-left 0.4s ease-out forwards" : "none",
+                  }}
                 >
-                  <span className="font-poppins-bold text-lg">{item.name}</span>
+                  <span className="font-poppins-bold text-base">{item.name}</span>
                 </Link>
-              );
-            })}
+              ))}
 
-            {/* Dropdown Products (mobile) */}
-            <div className="border-t border-white/10 pt-4 mt-4">
-              <button
-                onClick={() =>
-                  setIsProductsMobileOpen((prev) => !prev)
-                }
-                className="w-full flex justify-between items-center p-3 rounded-xl text-foreground hover:bg-white/5 transition-all duration-300"
+            {/* Products (versión mobile, sin hover raro) */}
+            <div className="mt-4 pt-4 border-t border-white/10">
+              <p className="font-poppins-bold text-xs text-muted-foreground mb-2 uppercase tracking-wide">
+                Products
+              </p>
+              {productLinks.map((product, index) => (
+                <Link
+                  key={product.href}
+                  to={product.href}
+                  className="block px-3 py-2 rounded-lg text-sm text-foreground hover:bg-white/5 hover:shadow-glass transition-all duration-300"
+                  style={{
+                    animationDelay: `${index * 0.05 + 0.15}s`,
+                    animation: isOpen ? "slide-in-left 0.4s ease-out forwards" : "none",
+                  }}
+                >
+                  {product.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Wholesale Portal abajo */}
+            <div className="mt-4 pt-4 border-t border-white/10">
+              <Link
+                to="/wholesale-portal"
+                className={`block text-center w-full px-4 py-3 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
+                  isActive("/wholesale-portal")
+                    ? "bg-gradient-holographic-dark text-black shadow-neon"
+                    : "text-foreground border border-white/20 hover:bg-white/5 hover:shadow-glass"
+                }`}
               >
-                <span className="font-poppins-bold text-lg">Products</span>
-                <span className="text-sm">
-                  {isProductsMobileOpen ? "▲" : "▼"}
-                </span>
-              </button>
-
-              {isProductsMobileOpen && (
-                <div className="mt-2 space-y-2 pl-4">
-                  {productLinks.map((prod) => (
-                    <Link
-                      key={prod.name}
-                      to={prod.href}
-                      className="block px-3 py-2 rounded-lg text-sm text-foreground hover:bg-white/5 transition-colors"
-                    >
-                      {prod.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
+                Wholesale Portal
+              </Link>
             </div>
           </div>
         </div>
