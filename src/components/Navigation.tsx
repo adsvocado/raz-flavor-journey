@@ -1,15 +1,7 @@
-// src/components/Navigation.tsx
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import razLogo from "@/assets/logo_raz.png";
-
-const navigationItems = [
-  { name: "Home", href: "/" },
-  { name: "Lab Testing", href: "/lab-testing" },
-  { name: "Contact Us", href: "/contact" },
-  { name: "Wholesale Portal", href: "/wholesale-portal" },
-];
 
 const productLinks = [
   { name: "2G THCP", href: "/products/2g-thcp" },
@@ -18,184 +10,154 @@ const productLinks = [
 ];
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false); // menú mobile
-  const [isProductsOpen, setIsProductsOpen] = useState(false); // dropdown desktop
-  const [isProductsMobileOpen, setIsProductsMobileOpen] = useState(false); // dropdown mobile
+  const [isOpen, setIsOpen] = useState(false); // Mobile menu
+  const [isProductsOpen, setIsProductsOpen] = useState(false); // Dropdown
   const location = useLocation();
 
-  // Cerrar menús al cambiar de ruta
+  // Close mobile + dropdown when changing page
   useEffect(() => {
     setIsOpen(false);
     setIsProductsOpen(false);
-    setIsProductsMobileOpen(false);
   }, [location]);
+
+  const isActive = (href: string) => location.pathname === href;
 
   return (
     <>
-      {/* Desktop / main nav */}
+      {/* NAVBAR */}
       <nav className="glass backdrop-blur-xl shadow-glass sticky top-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <Link
-              to="/"
-              className="hover:scale-105 transition-transform duration-300"
-            >
-              <img src={razLogo} alt="RAZ" className="h-8 md:h-10 w-auto" />
+
+            {/* LOGO */}
+            <Link to="/" className="hover:scale-105 transition-transform duration-300">
+              <img src={razLogo} alt="RAZ" className="h-8 md:h-10" />
             </Link>
 
-            {/* Desktop menu */}
-            <div className="hidden md:flex items-center space-x-6">
-              {navigationItems
-                .filter((item) => item.name !== "Wholesale Portal") // lo metemos al final
-                .map((item) => {
-                  const isActive = location.pathname === item.href;
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
-                        isActive
-                          ? "bg-gradient-holographic-dark text-black shadow-neon"
-                          : "text-black hover:text-primary hover:shadow-glass"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  );
-                })}
+            {/* DESKTOP LINKS */}
+            <div className="hidden md:flex items-center space-x-8">
 
-              {/* Dropdown PRODUCTS (desktop) */}
-              <div
-                className="relative"
-                onMouseEnter={() => setIsProductsOpen(true)}
-                onMouseLeave={() => setIsProductsOpen(false)}
+              {/* Home */}
+              <Link
+                to="/"
+                className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all ${
+                  isActive("/") ? "bg-gradient-holographic-dark text-black shadow-neon" : "text-black hover:text-primary"
+                }`}
               >
+                Home
+              </Link>
+
+              {/* Lab Testing */}
+              <Link
+                to="/lab-testing"
+                className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all ${
+                  isActive("/lab-testing") ? "bg-gradient-holographic-dark text-black shadow-neon" : "text-black hover:text-primary"
+                }`}
+              >
+                Lab Testing
+              </Link>
+
+              {/* Contact */}
+              <Link
+                to="/contact"
+                className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all ${
+                  isActive("/contact") ? "bg-gradient-holographic-dark text-black shadow-neon" : "text-black hover:text-primary"
+                }`}
+              >
+                Contact Us
+              </Link>
+
+              {/* PRODUCTS DROPDOWN — NOW CLICK TO OPEN */}
+              <div className="relative">
                 <button
-                  className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
-                    location.pathname.startsWith("/products")
+                  onClick={() => setIsProductsOpen((prev) => !prev)}
+                  className={`flex items-center gap-1 px-4 py-2 rounded-full font-poppins-bold text-sm transition-all ${
+                    location.pathname.startsWith("/products/")
                       ? "bg-gradient-holographic-dark text-black shadow-neon"
-                      : "text-black hover:text-primary hover:shadow-glass"
+                      : "text-black hover:text-primary"
                   }`}
                 >
                   Products
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      isProductsOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
+                {/* DROPDOWN PANEL — SOLID COLOR, NO TRANSPARENCY */}
                 {isProductsOpen && (
-                  <div className="absolute right-0 mt-2 w-48 glass rounded-2xl border border-white/10 shadow-lg py-2 z-40">
-                    {productLinks.map((prod) => (
+                  <div className="absolute left-0 top-full mt-2 bg-white border border-black/10 shadow-xl rounded-2xl py-2 min-w-[180px] z-50">
+                    {productLinks.map((product) => (
                       <Link
-                        key={prod.name}
-                        to={prod.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-white/10 transition-colors"
+                        key={product.href}
+                        to={product.href}
+                        className="block px-4 py-2 text-sm text-black hover:bg-black/5 rounded-xl transition"
                       >
-                        {prod.name}
+                        {product.name}
                       </Link>
                     ))}
                   </div>
                 )}
               </div>
 
-              {/* Wholesale Portal al final */}
-              {navigationItems
-                .filter((item) => item.name === "Wholesale Portal")
-                .map((item) => {
-                  const isActive = location.pathname === item.href;
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
-                        isActive
-                          ? "bg-gradient-holographic-dark text-black shadow-neon"
-                          : "text-black hover:text-primary hover:shadow-glass"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
-                  );
-                })}
+              {/* Wholesale */}
+              <Link
+                to="/wholesale-portal"
+                className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all ${
+                  isActive("/wholesale-portal")
+                    ? "bg-gradient-holographic-dark text-black shadow-neon"
+                    : "text-black hover:text-primary"
+                }`}
+              >
+                Wholesale Portal
+              </Link>
             </div>
 
-            {/* Mobile menu button */}
+            {/* MOBILE BUTTON */}
             <button
               onClick={() => setIsOpen((prev) => !prev)}
-              className="md:hidden p-2 rounded-lg glass hover:shadow-neon transition-all duration-300"
+              className="md:hidden p-2 rounded-lg glass"
             >
-              {isOpen ? (
-                <X className="w-6 h-6 text-black" />
-              ) : (
-                <Menu className="w-6 h-6 text-black" />
-              )}
+              {isOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6 text-black" />}
             </button>
+
           </div>
         </div>
       </nav>
 
-      {/* Mobile overlay */}
-      <div
-        className={`fixed inset-0 z-40 md:hidden transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="absolute inset-0 bg-raz-black/90 backdrop-blur-xl" />
+      {/* MOBILE MENU */}
+      {isOpen && (
+        <div className="fixed inset-0 z-40 bg-raz-black/90 backdrop-blur-xl p-6 md:hidden">
+          <div className="mt-14 space-y-3">
 
-        <div
-          className={`absolute top-20 left-4 right-4 glass rounded-2xl p-6 transition-all duration-300 ${
-            isOpen
-              ? "transform translate-y-0 opacity-100"
-              : "transform -translate-y-4 opacity-0"
-          }`}
-        >
-          <div className="space-y-3">
-            {navigationItems.map((item) => {
-              const isActive = location.pathname === item.href;
-              return (
+            <Link to="/" className="block p-3 rounded-xl text-white">Home</Link>
+            <Link to="/lab-testing" className="block p-3 rounded-xl text-white">Lab Testing</Link>
+            <Link to="/contact" className="block p-3 rounded-xl text-white">Contact Us</Link>
+
+            <div className="pt-4 border-t border-white/10">
+              <p className="text-xs text-white/50 mb-2 uppercase">Products</p>
+
+              {productLinks.map((product) => (
                 <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`flex items-center p-3 rounded-xl transition-all duration-300 hover:scale-105 ${
-                    isActive
-                      ? "bg-gradient-holographic-dark text-black shadow-neon"
-                      : "text-foreground hover:bg-white/5 hover:shadow-glass"
-                  }`}
+                  key={product.href}
+                  to={product.href}
+                  className="block px-3 py-2 rounded-lg text-white hover:bg-white/10"
                 >
-                  <span className="font-poppins-bold text-lg">{item.name}</span>
+                  {product.name}
                 </Link>
-              );
-            })}
-
-            {/* Dropdown Products (mobile) */}
-            <div className="border-t border-white/10 pt-4 mt-4">
-              <button
-                onClick={() =>
-                  setIsProductsMobileOpen((prev) => !prev)
-                }
-                className="w-full flex justify-between items-center p-3 rounded-xl text-foreground hover:bg-white/5 transition-all duration-300"
-              >
-                <span className="font-poppins-bold text-lg">Products</span>
-                <span className="text-sm">
-                  {isProductsMobileOpen ? "▲" : "▼"}
-                </span>
-              </button>
-
-              {isProductsMobileOpen && (
-                <div className="mt-2 space-y-2 pl-4">
-                  {productLinks.map((prod) => (
-                    <Link
-                      key={prod.name}
-                      to={prod.href}
-                      className="block px-3 py-2 rounded-lg text-sm text-foreground hover:bg-white/5 transition-colors"
-                    >
-                      {prod.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
+              ))}
             </div>
+
+            <Link
+              to="/wholesale-portal"
+              className="block text-center p-3 rounded-full text-white border border-white"
+            >
+              Wholesale Portal
+            </Link>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
