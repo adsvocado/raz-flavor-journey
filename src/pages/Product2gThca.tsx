@@ -11,6 +11,8 @@ import thca2gEmeraldCity from "@/assets/thca-2g-emerald-city.png";
 import thca2gRubySlippers from "@/assets/thca-2g-ruby-slippers.png";
 import thca2gNorthernLights from "@/assets/thca-2g-northern-lights.png";
 import thca2gBlueDream from "@/assets/thca-2g-blue-dream.png";
+import thca2gTropicalGush from "@/assets/thca-2g-tropical-gush.png";
+import thca2gFireIce from "@/assets/thca-2g-fire-ice.png";
 
 const productImages = [thca2gSingle, thca2gProducts, thca2gBox];
 
@@ -19,13 +21,15 @@ const flavors = [
   { id: 2, name: "Ruby Slippers", type: "Sativa", image: thca2gRubySlippers, gradient: "from-red-500 to-rose-600", pdfUrl: "#" },
   { id: 3, name: "Northern Lights", type: "Indica", image: thca2gNorthernLights, gradient: "from-pink-500 to-purple-600", pdfUrl: "#" },
   { id: 4, name: "Blue Dream", type: "Indica", image: thca2gBlueDream, gradient: "from-blue-500 to-indigo-600", pdfUrl: "#" },
+  { id: 5, name: "Tropical Gush", type: "Hybrid", image: thca2gTropicalGush, gradient: "from-amber-500 to-yellow-600", pdfUrl: "#" },
+  { id: 6, name: "Fire & Ice", type: "Hybrid", image: thca2gFireIce, gradient: "from-blue-400 to-pink-500", pdfUrl: "#" },
 ];
 
 const productInfo = {
   name: "2G THCA",
-  strainType: "Offered in four strain varieties, including uplifting sativas and relaxing indicas. Infused with THCA diamonds for a clean, powerful effect.",
+  strainType: "Offered in six strain varieties, including uplifting sativas, balanced hybrids, and relaxing indicas. Infused with THCA diamonds for a clean, powerful effect.",
   effects: ["Clear", "Strong", "Aromatic", "Balanced Body and Mind"],
-  strainName: "Four strains available, each with unique terpene notes and effects. Ideal for customers who want flavor, purity, and a potent THCA preroll.",
+  strainName: "Six strains available, each with unique terpene notes and effects. Ideal for customers who want flavor, purity, and a potent THCA preroll.",
 };
 
 const Product2gThca = () => {
@@ -149,10 +153,10 @@ const Product2gThca = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-druk text-4xl lg:text-5xl text-foreground mb-2">Available Flavors</h2>
-            <p className="text-muted-foreground text-lg">Four unique strains to choose from</p>
+            <p className="text-muted-foreground text-lg">Six unique strains to choose from</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {flavors.map((flavor, index) => (
               <motion.div
                 key={flavor.id}
