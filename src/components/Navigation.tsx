@@ -1,6 +1,6 @@
 // src/components/Navigation.tsx
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import razLogo from "@/assets/logo_raz.png";
 
@@ -65,29 +65,31 @@ const Navigation = () => {
                   );
                 })}
 
-              {/* Dropdown PRODUCTS (desktop) */}
-              <div
-                className="relative"
-                onMouseEnter={() => setIsProductsOpen(true)}
-                onMouseLeave={() => setIsProductsOpen(false)}
-              >
+              {/* Dropdown PRODUCTS (desktop) - AHORA POR CLICK Y FONDO BLANCO */}
+              <div className="relative">
                 <button
-                  className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 ${
+                  onClick={() => setIsProductsOpen((prev) => !prev)}
+                  className={`px-4 py-2 rounded-full font-poppins-bold text-sm transition-all duration-300 hover:scale-105 flex items-center gap-1 ${
                     location.pathname.startsWith("/products")
                       ? "bg-gradient-holographic-dark text-black shadow-neon"
                       : "text-black hover:text-primary hover:shadow-glass"
                   }`}
                 >
-                  Products
+                  <span>Products</span>
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      isProductsOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
                 {isProductsOpen && (
-                  <div className="absolute right-0 mt-2 w-48 glass rounded-2xl border border-white/10 shadow-lg py-2 z-40">
+                  <div className="absolute right-0 mt-2 w-48 rounded-2xl border border-black/10 shadow-lg py-2 z-40 bg-white">
                     {productLinks.map((prod) => (
                       <Link
                         key={prod.name}
                         to={prod.href}
-                        className="block px-4 py-2 text-sm text-foreground hover:bg-white/10 transition-colors"
+                        className="block px-4 py-2 text-sm text-black hover:bg-black/5 transition-colors rounded-xl"
                       >
                         {prod.name}
                       </Link>
