@@ -110,14 +110,7 @@ const FlavorCard = ({ flavor, index }: { flavor: typeof flavors[0]; index: numbe
 
       <div className="text-center">
         <h3 className="font-druk text-2xl text-foreground mb-2">{flavor.name}</h3>
-        <p className="text-muted-foreground text-sm mb-4">{flavor.type}</p>
-
-        <button
-          onClick={() => window.open(flavor.pdfUrl, "_blank")}
-          className={`w-full py-3 px-6 bg-gradient-to-r ${flavor.gradient} text-white font-poppins-bold rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105`}
-        >
-          View Lab Results
-        </button>
+        <p className="text-muted-foreground text-sm">{flavor.type}</p>
       </div>
     </motion.div>
   );
