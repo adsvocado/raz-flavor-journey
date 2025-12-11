@@ -27,6 +27,8 @@ import thca2gEmeraldCity from "@/assets/thca-2g-emerald-city.png";
 import thca2gRubySlippers from "@/assets/thca-2g-ruby-slippers.png";
 import thca2gNorthernLights from "@/assets/thca-2g-northern-lights.png";
 import thca2gBlueDream from "@/assets/thca-2g-blue-dream.png";
+import thca2gTropicalGush from "@/assets/thca-2g-tropical-gush.png";
+import thca2gFireIce from "@/assets/thca-2g-fire-ice.png";
 
 const productsTHCP15g = [
   {
@@ -137,6 +139,22 @@ const productsTHCA2g = [
     type: "Indica",
     images: [thca2gBlueDream],
     gradient: "from-blue-500 to-indigo-600",
+    pdfUrl: "#",
+  },
+  {
+    id: 5,
+    name: "Tropical Gush",
+    type: "Hybrid",
+    images: [thca2gTropicalGush],
+    gradient: "from-amber-500 to-yellow-600",
+    pdfUrl: "#",
+  },
+  {
+    id: 6,
+    name: "Fire & Ice",
+    type: "Hybrid",
+    images: [thca2gFireIce],
+    gradient: "from-blue-400 to-pink-500",
     pdfUrl: "#",
   },
 ];
