@@ -64,7 +64,7 @@ const productsTHCP2g = [
     type: "Indica",
     images: [thcp2gNightCrawler],
     gradient: "from-purple-500 to-indigo-600",
-    pdfUrl: "#",
+    pdfUrl: "https://drive.google.com/file/d/1LlDIsoO6dGnA8KHo7j6Pm5rRQZ9Y-b8L/view?usp=sharing",
   },
   {
     id: 2,
