@@ -72,7 +72,7 @@ const productsTHCP2g = [
     type: "Sativa",
     images: [thcp2gCactusJack],
     gradient: "from-green-500 to-emerald-600",
-    pdfUrl: "#",
+    pdfUrl: "https://drive.google.com/file/d/1MclbxEXZKeWUgo52aKsVncHejWvgjao8/view?usp=sharing",
   },
   {
     id: 3,
