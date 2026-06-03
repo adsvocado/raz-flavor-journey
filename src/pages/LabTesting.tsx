@@ -115,7 +115,7 @@ const productsTHCA2g = [
     type: "Sativa",
     images: [thca2gEmeraldCity],
     gradient: "from-esmerald-500 to-green-600",
-    pdfUrl: "#",
+    pdfUrl: "public/esmerald_city_2605AFL0816.2941 - White Labels - RAZ THCA 2GR Infused Preroll (1).pdf",
   },
   {
     id: 2,
@@ -123,7 +123,7 @@ const productsTHCA2g = [
     type: "Sativa",
     images: [thca2gRubySlippers],
     gradient: "from-red-500 to-rose-600",
-    pdfUrl: "#",
+    pdfUrl: "public/ruby_slipper2605AFL0816.2943 - White Labels - RAZ THCA 2GR Infused Preroll (1).pdf",
   },
   {
     id: 3,
@@ -131,7 +131,7 @@ const productsTHCA2g = [
     type: "Indica",
     images: [thca2gNorthernLights],
     gradient: "from-pink-500 to-purple-600",
-    pdfUrl: "#",
+    pdfUrl: "public/northen lights_2605AFL0816.2941 - White Labels - RAZ THCA 2GR Infused Preroll (1).pdf",
   },
   {
     id: 4,
@@ -139,7 +139,7 @@ const productsTHCA2g = [
     type: "Indica",
     images: [thca2gBlueDream],
     gradient: "from-blue-500 to-indigo-600",
-    pdfUrl: "#",
+    pdfUrl: "public/blue dream_2605AFL0816.2942 - White Labels - RAZ THCA 2GR Infused Preroll (2).pdf",
   },
   {
     id: 5,
@@ -147,7 +147,7 @@ const productsTHCA2g = [
     type: "Hybrid",
     images: [thca2gTropicalGush],
     gradient: "from-amber-500 to-yellow-600",
-    pdfUrl: "#",
+    pdfUrl: "public/tropical_gush_2605AFL0816.2946 - White Labels - RAZ THCA 2GR Infused Preroll (2).pdf",
   },
   {
     id: 6,
@@ -155,7 +155,7 @@ const productsTHCA2g = [
     type: "Hybrid",
     images: [thca2gFireIce],
     gradient: "from-blue-400 to-pink-500",
-    pdfUrl: "#",
+    pdfUrl: "public/fire_ice_2605AFL0816.2944 - White Labels - RAZ THCA 2GR Infused Preroll (1).pdf",
   },
 ];
 
