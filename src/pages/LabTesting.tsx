@@ -104,7 +104,7 @@ const productsTHCP2g = [
     type: "Indica",
     images: [thcp2gForbiddenFruit],
     gradient: "from-purple-400 to-pink-500",
-    pdfUrl: "https://drive.google.com/file/d/1GBNQ_3k2od5DPe7MZGf6if5-9Z1WVt-e/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1n6KtjmEEUMA-1Pu7VDv0c3rC_sIDffhz/view?usp=drive_link",
   },
 ];
 
