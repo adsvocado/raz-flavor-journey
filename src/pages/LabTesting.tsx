@@ -64,7 +64,7 @@ const productsTHCP2g = [
     type: "Indica",
     images: [thcp2gNightCrawler],
     gradient: "from-purple-500 to-indigo-600",
-    pdfUrl: "https://drive.google.com/file/d/1LlDIsoO6dGnA8KHo7j6Pm5rRQZ9Y-b8L/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1ZQW-XNVJSjPFMgLPvEG1vg7tBfyFNLwF/view?usp=drive_link",
   },
   {
     id: 2,
@@ -72,7 +72,7 @@ const productsTHCP2g = [
     type: "Sativa",
     images: [thcp2gCactusJack],
     gradient: "from-green-500 to-emerald-600",
-    pdfUrl: "https://drive.google.com/file/d/1MclbxEXZKeWUgo52aKsVncHejWvgjao8/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1YdK26n5zbBQKfwGkVbJKe6WYh-ZlZmWX/view?usp=drive_link",
   },
   {
     id: 3,
@@ -80,7 +80,7 @@ const productsTHCP2g = [
     type: "Hybrid",
     images: [thcp2gGeorgiaPie],
     gradient: "from-amber-500 to-yellow-600",
-    pdfUrl: "https://drive.google.com/file/d/1y_nyk8Z3j-ory4dAQ6ZnggMsZY9Sip98/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1IXj0zFUlNXPhbc5P5fb2y_v8r008R1Hr/view?usp=drive_link",
   },
   {
     id: 4,
@@ -88,7 +88,7 @@ const productsTHCP2g = [
     type: "Hybrid",
     images: [thcp2gMiamiMintz],
     gradient: "from-blue-400 to-cyan-500",
-    pdfUrl: "https://drive.google.com/file/d/1Zo_y6XVaw0I0yrHY0tBANOekRpToYtTs/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/1PzS6gBg35zL3luvny4lR-kwLinSXkgcO/view?usp=drive_link",
   },
   {
     id: 5,
@@ -96,7 +96,7 @@ const productsTHCP2g = [
     type: "Sativa",
     images: [thcp2gDayCrawler],
     gradient: "from-gray-500 to-slate-600",
-    pdfUrl: "https://drive.google.com/file/d/1nycEnDZPF-Txq-amoBqd8kbE_TkNe5sY/view?usp=sharing",
+    pdfUrl: "https://drive.google.com/file/d/10Bbw8QjpBLDqAbPBtYetGlO9N8EzVw20/view?usp=drive_link",
   },
   {
     id: 6,
