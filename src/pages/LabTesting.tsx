@@ -64,7 +64,7 @@ const productsTHCP2g = [
     type: "Indica",
     images: [thcp2gNightCrawler],
     gradient: "from-purple-500 to-indigo-600",
-    pdfUrl: "https://drive.google.com/drive/u/2/folders/1CiuHJFmaya2gT28Gs91OEhXeTqOkWfDM",
+    pdfUrl: "https://drive.google.com/file/d/1_SfIV4qbpThnzg7ARrSuOPk4Al1YiMEK/view?usp=sharing",
   },
   {
     id: 2,
@@ -72,7 +72,7 @@ const productsTHCP2g = [
     type: "Sativa",
     images: [thcp2gCactusJack],
     gradient: "from-green-500 to-emerald-600",
-    pdfUrl: "https://drive.google.com/drive/u/2/folders/1CiuHJFmaya2gT28Gs91OEhXeTqOkWfDM",
+    pdfUrl: "https://drive.google.com/file/d/1QKJDEb7ssCgPFh-HtJ1-yxRL5_EQNFvh/view?usp=sharing",
   },
   {
     id: 3,
@@ -80,7 +80,7 @@ const productsTHCP2g = [
     type: "Hybrid",
     images: [thcp2gGeorgiaPie],
     gradient: "from-amber-500 to-yellow-600",
-    pdfUrl: "https://drive.google.com/drive/u/2/folders/1CiuHJFmaya2gT28Gs91OEhXeTqOkWfDM",
+    pdfUrl: "https://drive.google.com/file/d/1UZvA1FHQWpd6mSlxIG87WfQOHDZfr0ri/view?usp=sharing",
   },
   {
     id: 4,
@@ -88,7 +88,7 @@ const productsTHCP2g = [
     type: "Hybrid",
     images: [thcp2gMiamiMintz],
     gradient: "from-blue-400 to-cyan-500",
-    pdfUrl: "https://drive.google.com/drive/u/2/folders/1CiuHJFmaya2gT28Gs91OEhXeTqOkWfDM",
+    pdfUrl: "https://drive.google.com/file/d/1Zls3gk6dy8zYkpJeaBi_rF4o48ZRC_dA/view?usp=sharing",
   },
   {
     id: 5,
@@ -96,7 +96,7 @@ const productsTHCP2g = [
     type: "Sativa",
     images: [thcp2gDayCrawler],
     gradient: "from-gray-500 to-slate-600",
-    pdfUrl: "https://drive.google.com/drive/u/2/folders/1CiuHJFmaya2gT28Gs91OEhXeTqOkWfDM",
+    pdfUrl: "https://drive.google.com/file/d/1hiVlCWcMgklET8j04wVrPfTVvfgGskSD/view?usp=sharing",
   },
   {
     id: 6,
@@ -104,7 +104,7 @@ const productsTHCP2g = [
     type: "Indica",
     images: [thcp2gForbiddenFruit],
     gradient: "from-purple-400 to-pink-500",
-    pdfUrl: "https://drive.google.com/drive/u/2/folders/1CiuHJFmaya2gT28Gs91OEhXeTqOkWfDM",
+    pdfUrl: "https://drive.google.com/file/d/1jcPJyYZd-achemvOX4bEiM54uWxIve3c/view?usp=sharing",
   },
 ];
 
