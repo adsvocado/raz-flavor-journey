@@ -37,7 +37,7 @@ const productsTHCP15g = [
     type: "Sativa",
     images: [alaskanThunderfuckImage, alaskanThunderfuckSingle, alaskanThunderfuckProducts],
     gradient: "from-blue-500 to-purple-600",
-    pdfUrl: "/alaskan-thunderfuck-coa.pdf",
+    pdfUrl: "https://drive.google.com/file/d/1fX4vlqhThyqpcBUiviGtsYYYcFhLJ3I6/view?usp=sharing",
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const productsTHCP15g = [
     type: "Hybrid",
     images: [alienCookiesImage, alienCookiesSingle, alienCookiesProducts],
     gradient: "from-green-500 to-blue-600",
-    pdfUrl: "/alien-cookies-coa.pdf",
+    pdfUrl: "https://drive.google.com/file/d/18uqyJ8eFLY74uGIGEWph-h4844iG2ANS/view?usp=sharing",
   },
   {
     id: 3,
@@ -53,7 +53,7 @@ const productsTHCP15g = [
     type: "Indica",
     images: [strawberryKushImage, strawberryKushSingle, strawberryKushProducts],
     gradient: "from-pink-500 to-red-600",
-    pdfUrl: "/strawberry-kush-coa.pdf",
+    pdfUrl: "https://drive.google.com/file/d/107t6Prktva-JZs01wD6GxM3ZvJjGyWCb/view?usp=sharing",
   },
 ];
 
