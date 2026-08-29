@@ -51,5 +51,4 @@ const InfiniteScroll = () => {
     </motion.section>
   );
 };
-
 export default InfiniteScroll;
